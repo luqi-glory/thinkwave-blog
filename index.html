@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ThinkWave — 关于技术、创造与生活的个人博客。">
+  <meta name="theme-color" content="#f4f1ea">
+  <title>ThinkWave · 思潮</title>
+  <style>
+    :root {
+      --paper: #f3f0e8;
+      --paper-deep: #e9e4d8;
+      --ink: #17221d;
+      --muted: #69736d;
+      --line: rgba(23, 34, 29, .15);
+      --accent: #e65c36;
+      --accent-soft: #f6d9ca;
+      --forest: #174b3a;
+      --card: rgba(255, 255, 255, .54);
+      --shadow: 0 24px 70px rgba(42, 46, 35, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 86% 7%, rgba(230, 92, 54, .14), transparent 25rem),
+        radial-gradient(circle at 10% 52%, rgba(23, 75, 58, .11), transparent 30rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      opacity: .16;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 88px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 760; letter-spacing: -.03em; }
+    .brand-mark { width: 36px; height: 36px; }
+    .brand small { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+    .brand-copy { display: grid; line-height: 1.05; }
+
+    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 14px; }
+    .nav-links a { color: var(--muted); transition: color .2s ease; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links .subscribe { padding: 10px 17px; color: #fff; background: var(--forest); border-radius: 999px; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 60px;
+      align-items: end;
+      min-height: 570px;
+      padding: 84px 0 76px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
+    .eyebrow::before { width: 34px; height: 1px; content: ""; background: currentColor; }
+    h1 { max-width: 780px; margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(56px, 8vw, 112px); font-weight: 500; letter-spacing: -.065em; line-height: .93; }
+    h1 em { color: var(--accent); font-weight: inherit; }
+    .hero-copy > p { max-width: 650px; margin: 34px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
+
+    .hero-note {
+      position: relative;
+      padding: 26px 28px 30px;
+      overflow: hidden;
+      background: var(--forest);
+      color: #f7f4ec;
+      border-radius: 3px 3px 44px 3px;
+      box-shadow: var(--shadow);
+    }
+    .hero-note::after { position: absolute; right: -46px; bottom: -55px; width: 170px; height: 170px; content: ""; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 25px rgba(255,255,255,.05), 0 0 0 52px rgba(255,255,255,.035); }
+    .hero-note .number { color: #ef987a; font-family: Georgia, serif; font-size: 54px; line-height: 1; }
+    .hero-note p { position: relative; z-index: 1; margin: 20px 0 16px; font-family: Georgia, "Noto Serif SC", serif; font-size: 20px; line-height: 1.55; }
+    .hero-note span { color: rgba(255,255,255,.58); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 72px 0 30px; }
+    .section-head h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(34px, 5vw, 56px); font-weight: 500; letter-spacing: -.045em; }
+    .section-head a { color: var(--muted); font-size: 14px; border-bottom: 1px solid var(--line); }
+
+    .articles { display: grid; grid-template-columns: 1.35fr .65fr; gap: 22px; }
+    .article-card { position: relative; min-height: 470px; padding: 34px; overflow: hidden; background: var(--card); border: 1px solid rgba(255,255,255,.64); box-shadow: 0 15px 50px rgba(42,46,35,.07); transition: transform .3s ease, box-shadow .3s ease; }
+    .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .article-card.featured { display: flex; flex-direction: column; justify-content: space-between; background: var(--accent-soft); }
+    .article-card.featured::after { position: absolute; right: -110px; top: -150px; width: 430px; height: 430px; content: ""; border: 2px solid rgba(230,92,54,.24); border-radius: 43% 57% 66% 34% / 40% 38% 62% 60%; transform: rotate(24deg); }
+    .card-meta { position: relative; z-index: 1; display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+    .card-content { position: relative; z-index: 1; }
+    .card-content h3 { max-width: 690px; margin: 0 0 20px; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(30px, 4vw, 54px); font-weight: 500; letter-spacing: -.035em; line-height: 1.12; }
+    .card-content p { max-width: 600px; margin: 0; color: var(--muted); }
+    .article-card:not(.featured) .card-content h3 { font-size: 32px; }
+    .arrow { display: grid; place-items: center; width: 48px; height: 48px; margin-top: 28px; color: white; background: var(--ink); border-radius: 50%; transition: transform .25s ease; }
+    .article-card:hover .arrow { transform: translateX(5px); }
+
+    .notes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .note { padding: 30px 28px 32px 0; }
+    .note + .note { padding-left: 28px; border-left: 1px solid var(--line); }
+    .note time { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .09em; }
+    .note h3 { margin: 13px 0 8px; font-family: Georgia, "Noto Serif SC", serif; font-size: 22px; font-weight: 500; line-height: 1.35; }
+    .note p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .about { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: start; padding: 110px 0; }
+    .about-label { color: var(--muted); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
+    .about-copy { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.035em; line-height: 1.32; }
+    .about-copy em { color: var(--accent); font-weight: inherit; }
+
+    footer { color: #eef1ed; background: var(--ink); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; padding: 44px 0; }
+    .footer-inner p { margin: 0; color: rgba(255,255,255,.55); font-size: 13px; }
+    .footer-links { display: flex; gap: 24px; font-size: 13px; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 800px) {
+      .nav-links a:not(.subscribe) { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 62px 0 55px; }
+      .hero-note { max-width: 440px; }
+      .articles { grid-template-columns: 1fr; }
+      .article-card { min-height: 390px; }
+      .notes { grid-template-columns: 1fr; }
+      .note, .note + .note { padding: 25px 0; border-left: 0; }
+      .note + .note { border-top: 1px solid var(--line); }
+      .about { grid-template-columns: 1fr; gap: 28px; padding: 80px 0; }
+    }
+
+    @media (max-width: 520px) {
+      .shell { width: min(100% - 28px, 1180px); }
+      .nav { min-height: 72px; }
+      .brand small { display: none; }
+      .nav-links .subscribe { padding: 8px 13px; }
+      .hero { gap: 42px; }
+      h1 { font-size: 54px; }
+      .section-head { padding-top: 55px; }
+      .article-card { min-height: 360px; padding: 25px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="ThinkWave 首页">
+        <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="ThinkWave 标志">
+          <circle cx="20" cy="20" r="19" fill="#174b3a"/>
+          <path d="M7 22c5-8 9 8 14 0s8-4 12-1" fill="none" stroke="#f4f1ea" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M9 16c4-5 7 5 11 0s7-3 10-1" fill="none" stroke="#e65c36" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-copy">ThinkWave <small>Ideas in motion</small></span>
+      </a>
+      <div class="nav-links">
+        <a href="#articles">文章</a>
+        <a href="#notes">短记</a>
+        <a href="#about">关于</a>
+        <a class="subscribe" href="mailto:hello@thinkwave.cn">和我聊聊</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">思考 · 创造 · 记录</p>
+        <h1>让想法，<br>泛起<em>涟漪。</em></h1>
+        <p>这里收藏关于技术、产品与生活的长期思考。保持好奇，缓慢生长，也相信一个小小的念头能抵达很远的地方。</p>
+      </div>
+      <aside class="hero-note reveal" aria-label="今日摘录">
+        <div class="number">“</div>
+        <p>不要急着追赶每一道浪，先找到属于自己的潮汐。</p>
+        <span>今日摘录 · 001</span>
+      </aside>
+    </section>
+
+    <section id="articles" class="shell">
+      <div class="section-head reveal">
+        <h2>最近在写</h2>
+        <a href="#notes">查看全部 →</a>
+      </div>
+      <div class="articles">
+        <article class="article-card featured reveal">
+          <div class="card-meta"><span>产品随想</span><time datetime="2026-08-25">2026.08.25</time></div>
+          <div class="card-content">
+            <h3>在答案随处可得的时代，重新学习如何提问</h3>
+            <p>工具越来越聪明之后，真正稀缺的也许不再是答案，而是对问题边界的敏感，以及愿意停下来思考的耐心。</p>
+            <a class="arrow" href="#" aria-label="阅读文章">→</a>
+          </div>
+        </article>
+        <article class="article-card reveal">
+          <div class="card-meta"><span>生活实验</span><time datetime="2026-08-18">2026.08.18</time></div>
+          <div class="card-content">
+            <h3>我的低噪音信息饮食</h3>
+            <p>少一点实时推送，多一点主动探索。</p>
+            <a class="arrow" href="#" aria-label="阅读文章">→</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="notes" class="shell">
+      <div class="section-head reveal">
+        <h2>一些短记</h2>
+        <a href="#about">随时更新</a>
+      </div>
+      <div class="notes reveal">
+        <article class="note"><time datetime="2026-08-12">08 / 12</time><h3>好的界面，应该给人留一点呼吸。</h3><p>设计不是填满空间，而是理解空白。</p></article>
+        <article class="note"><time datetime="2026-08-03">08 / 03</time><h3>散步是最低成本的思维整理术。</h3><p>脚步有节奏以后，思绪也会慢慢排成队。</p></article>
+        <article class="note"><time datetime="2026-07-27">07 / 27</time><h3>先做一件能用的小东西。</h3><p>真实世界的反馈，比脑海里的完美更有价值。</p></article>
+      </div>
+    </section>
+
+    <section id="about" class="about shell reveal">
+      <div class="about-label">About ThinkWave / 关于这里</div>
+      <p class="about-copy">ThinkWave 是我的数字花园。它不追逐热点，只记录那些值得反复咀嚼的想法——关于<em>人与技术</em>，也关于如何更清醒地生活。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <p>© <span id="year">2026</span> ThinkWave. 在思想的浪潮里保持清醒。</p>
+      <div class="footer-links"><a href="mailto:hello@thinkwave.cn">Email</a><a href="#top">回到顶部 ↑</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
