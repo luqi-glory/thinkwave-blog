@@ -1,268 +1,138 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ThinkWave — 关于技术、创造与生活的个人博客。">
-  <meta name="theme-color" content="#f4f1ea">
-  <title>ThinkWave · 思潮</title>
-  <style>
-    :root {
-      --paper: #f3f0e8;
-      --paper-deep: #e9e4d8;
-      --ink: #17221d;
-      --muted: #69736d;
-      --line: rgba(23, 34, 29, .15);
-      --accent: #e65c36;
-      --accent-soft: #f6d9ca;
-      --forest: #174b3a;
-      --card: rgba(255, 255, 255, .54);
-      --shadow: 0 24px 70px rgba(42, 46, 35, .12);
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 86% 7%, rgba(230, 92, 54, .14), transparent 25rem),
-        radial-gradient(circle at 10% 52%, rgba(23, 75, 58, .11), transparent 30rem),
-        var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body::before {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      opacity: .16;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    .shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 88px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 760; letter-spacing: -.03em; }
-    .brand-mark { width: 36px; height: 36px; }
-    .brand small { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
-    .brand-copy { display: grid; line-height: 1.05; }
-
-    .nav-links { display: flex; align-items: center; gap: 30px; font-size: 14px; }
-    .nav-links a { color: var(--muted); transition: color .2s ease; }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-links .subscribe { padding: 10px 17px; color: #fff; background: var(--forest); border-radius: 999px; }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 60px;
-      align-items: end;
-      min-height: 570px;
-      padding: 84px 0 76px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 24px; color: var(--accent); font-size: 12px; font-weight: 750; letter-spacing: .17em; text-transform: uppercase; }
-    .eyebrow::before { width: 34px; height: 1px; content: ""; background: currentColor; }
-    h1 { max-width: 780px; margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(56px, 8vw, 112px); font-weight: 500; letter-spacing: -.065em; line-height: .93; }
-    h1 em { color: var(--accent); font-weight: inherit; }
-    .hero-copy > p { max-width: 650px; margin: 34px 0 0; color: var(--muted); font-size: clamp(17px, 2vw, 21px); }
-
-    .hero-note {
-      position: relative;
-      padding: 26px 28px 30px;
-      overflow: hidden;
-      background: var(--forest);
-      color: #f7f4ec;
-      border-radius: 3px 3px 44px 3px;
-      box-shadow: var(--shadow);
-    }
-    .hero-note::after { position: absolute; right: -46px; bottom: -55px; width: 170px; height: 170px; content: ""; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; box-shadow: 0 0 0 25px rgba(255,255,255,.05), 0 0 0 52px rgba(255,255,255,.035); }
-    .hero-note .number { color: #ef987a; font-family: Georgia, serif; font-size: 54px; line-height: 1; }
-    .hero-note p { position: relative; z-index: 1; margin: 20px 0 16px; font-family: Georgia, "Noto Serif SC", serif; font-size: 20px; line-height: 1.55; }
-    .hero-note span { color: rgba(255,255,255,.58); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; padding: 72px 0 30px; }
-    .section-head h2 { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(34px, 5vw, 56px); font-weight: 500; letter-spacing: -.045em; }
-    .section-head a { color: var(--muted); font-size: 14px; border-bottom: 1px solid var(--line); }
-
-    .articles { display: grid; grid-template-columns: 1.35fr .65fr; gap: 22px; }
-    .article-card { position: relative; min-height: 470px; padding: 34px; overflow: hidden; background: var(--card); border: 1px solid rgba(255,255,255,.64); box-shadow: 0 15px 50px rgba(42,46,35,.07); transition: transform .3s ease, box-shadow .3s ease; }
-    .article-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
-    .article-card.featured { display: flex; flex-direction: column; justify-content: space-between; background: var(--accent-soft); }
-    .article-card.featured::after { position: absolute; right: -110px; top: -150px; width: 430px; height: 430px; content: ""; border: 2px solid rgba(230,92,54,.24); border-radius: 43% 57% 66% 34% / 40% 38% 62% 60%; transform: rotate(24deg); }
-    .card-meta { position: relative; z-index: 1; display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
-    .card-content { position: relative; z-index: 1; }
-    .card-content h3 { max-width: 690px; margin: 0 0 20px; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(30px, 4vw, 54px); font-weight: 500; letter-spacing: -.035em; line-height: 1.12; }
-    .card-content p { max-width: 600px; margin: 0; color: var(--muted); }
-    .article-card:not(.featured) .card-content h3 { font-size: 32px; }
-    .arrow { display: grid; place-items: center; width: 48px; height: 48px; margin-top: 28px; color: white; background: var(--ink); border-radius: 50%; transition: transform .25s ease; }
-    .article-card:hover .arrow { transform: translateX(5px); }
-
-    .notes { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .note { padding: 30px 28px 32px 0; }
-    .note + .note { padding-left: 28px; border-left: 1px solid var(--line); }
-    .note time { color: var(--accent); font-size: 12px; font-weight: 700; letter-spacing: .09em; }
-    .note h3 { margin: 13px 0 8px; font-family: Georgia, "Noto Serif SC", serif; font-size: 22px; font-weight: 500; line-height: 1.35; }
-    .note p { margin: 0; color: var(--muted); font-size: 14px; }
-
-    .about { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: start; padding: 110px 0; }
-    .about-label { color: var(--muted); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; }
-    .about-copy { margin: 0; font-family: Georgia, "Noto Serif SC", serif; font-size: clamp(28px, 4vw, 48px); letter-spacing: -.035em; line-height: 1.32; }
-    .about-copy em { color: var(--accent); font-weight: inherit; }
-
-    footer { color: #eef1ed; background: var(--ink); }
-    .footer-inner { display: flex; justify-content: space-between; gap: 30px; padding: 44px 0; }
-    .footer-inner p { margin: 0; color: rgba(255,255,255,.55); font-size: 13px; }
-    .footer-links { display: flex; gap: 24px; font-size: 13px; }
-
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s ease, transform .75s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    @media (max-width: 800px) {
-      .nav-links a:not(.subscribe) { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; padding: 62px 0 55px; }
-      .hero-note { max-width: 440px; }
-      .articles { grid-template-columns: 1fr; }
-      .article-card { min-height: 390px; }
-      .notes { grid-template-columns: 1fr; }
-      .note, .note + .note { padding: 25px 0; border-left: 0; }
-      .note + .note { border-top: 1px solid var(--line); }
-      .about { grid-template-columns: 1fr; gap: 28px; padding: 80px 0; }
-    }
-
-    @media (max-width: 520px) {
-      .shell { width: min(100% - 28px, 1180px); }
-      .nav { min-height: 72px; }
-      .brand small { display: none; }
-      .nav-links .subscribe { padding: 8px 13px; }
-      .hero { gap: 42px; }
-      h1 { font-size: 54px; }
-      .section-head { padding-top: 55px; }
-      .article-card { min-height: 360px; padding: 25px; }
-      .footer-inner { flex-direction: column; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-      .reveal { opacity: 1; transform: none; }
-    }
-  </style>
+  <meta name="description" content="Qi Lu — AI researcher working on multimodal learning, AI agents, and AI safety.">
+  <meta name="theme-color" content="#f5f2ea">
+  <meta property="og:title" content="Qi Lu · AI Researcher">
+  <meta property="og:description" content="Research in multimodal learning, AI agents, and AI safety.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thinkwave.cn">
+  <meta property="og:image" content="https://thinkwave.cn/pic/indentification.png">
+  <title>Qi Lu · AI Researcher</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="shell">
-    <nav class="nav" aria-label="主导航">
-      <a class="brand" href="#top" aria-label="ThinkWave 首页">
-        <svg class="brand-mark" viewBox="0 0 40 40" role="img" aria-label="ThinkWave 标志">
-          <circle cx="20" cy="20" r="19" fill="#174b3a"/>
-          <path d="M7 22c5-8 9 8 14 0s8-4 12-1" fill="none" stroke="#f4f1ea" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M9 16c4-5 7 5 11 0s7-3 10-1" fill="none" stroke="#e65c36" stroke-width="2.4" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-copy">ThinkWave <small>Ideas in motion</small></span>
-      </a>
-      <div class="nav-links">
-        <a href="#articles">文章</a>
-        <a href="#notes">短记</a>
-        <a href="#about">关于</a>
-        <a class="subscribe" href="mailto:hello@thinkwave.cn">和我聊聊</a>
-      </div>
-    </nav>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header" id="top">
+    <div class="nav-wrap">
+      <a class="wordmark" href="#top" aria-label="Qi Lu home"><span class="wordmark-dot"></span><span>QL<span class="wordmark-slash">/</span>26</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#education">Education</a>
+      </nav>
+      <a class="nav-contact" href="mailto:lq123456988@qq.com"><span>Get in touch</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
+    </div>
   </header>
 
-  <main id="top">
-    <section class="hero shell">
-      <div class="hero-copy reveal">
-        <p class="eyebrow">思考 · 创造 · 记录</p>
-        <h1>让想法，<br>泛起<em>涟漪。</em></h1>
-        <p>这里收藏关于技术、产品与生活的长期思考。保持好奇，缓慢生长，也相信一个小小的念头能抵达很远的地方。</p>
-      </div>
-      <aside class="hero-note reveal" aria-label="今日摘录">
-        <div class="number">“</div>
-        <p>不要急着追赶每一道浪，先找到属于自己的潮汐。</p>
-        <span>今日摘录 · 001</span>
-      </aside>
-    </section>
-
-    <section id="articles" class="shell">
-      <div class="section-head reveal">
-        <h2>最近在写</h2>
-        <a href="#notes">查看全部 →</a>
-      </div>
-      <div class="articles">
-        <article class="article-card featured reveal">
-          <div class="card-meta"><span>产品随想</span><time datetime="2026-08-25">2026.08.25</time></div>
-          <div class="card-content">
-            <h3>在答案随处可得的时代，重新学习如何提问</h3>
-            <p>工具越来越聪明之后，真正稀缺的也许不再是答案，而是对问题边界的敏感，以及愿意停下来思考的耐心。</p>
-            <a class="arrow" href="#" aria-label="阅读文章">→</a>
+  <main>
+    <section class="hero" id="about">
+      <div class="hero-orbit orbit-one" aria-hidden="true"></div><div class="hero-orbit orbit-two" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> Artificial Intelligence Researcher</div>
+          <h1>Qi Lu <span class="cn-name">盧琦</span></h1>
+          <p class="hero-kicker">Exploring intelligence across <em>modalities</em>, <em>agents</em>, and <em>responsible AI</em>.</p>
+          <div class="hero-bio">
+            <p>I am an artificial intelligence researcher interested in multimodal learning, AI agents, and AI ethics &amp; safety. I am pursuing my undergraduate degree at <a class="text-link" href="https://www.hust.edu.cn/" target="_blank" rel="noopener">HUST</a> and previously worked as a Research Scientist at <a class="text-link" href="https://lightingread.cn/lightest/" target="_blank" rel="noopener">LightRead</a>.</p>
+            <p>Rather than following the conventional academic path in this pivotal era of AI, I am moving toward research at the intersection of <strong>AI and finance</strong>.</p>
           </div>
-        </article>
-        <article class="article-card reveal">
-          <div class="card-meta"><span>生活实验</span><time datetime="2026-08-18">2026.08.18</time></div>
-          <div class="card-content">
-            <h3>我的低噪音信息饮食</h3>
-            <p>少一点实时推送，多一点主动探索。</p>
-            <a class="arrow" href="#" aria-label="阅读文章">→</a>
+          <div class="hero-actions">
+            <a class="primary-action" href="#publications">Explore my research <span>↘</span></a>
+            <div class="social-links" aria-label="Social links">
+              <a href="mailto:lq123456988@qq.com" aria-label="Email Qi Lu" data-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 6.5h17v11h-17zM4 7l8 6 8-6"/></svg></a>
+              <a href="https://github.com/luqi-glory" target="_blank" rel="noopener" aria-label="GitHub" data-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.63.57-3.18-1.12-3.18-1.12-.43-1.1-1.05-1.39-1.05-1.39-.86-.58.07-.57.07-.57.95.07 1.45.98 1.45.98.84 1.44 2.21 1.02 2.75.78.08-.61.33-1.02.6-1.26-2.1-.24-4.31-1.05-4.31-4.67 0-1.03.37-1.87.97-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.56.97A8.9 8.9 0 0 1 12 6.94a8.9 8.9 0 0 1 2.34.31c1.77-1.22 2.56-.97 2.56-.97.51 1.3.19 2.26.09 2.5.6.66.97 1.5.97 2.53 0 3.63-2.22 4.43-4.33 4.66.34.3.64.87.64 1.75v2.65c0 .25.17.55.65.45A9.3 9.3 0 0 0 12 2.7z" fill="currentColor" stroke="none"/></svg></a>
+              <a href="https://scholar.google.com/citations?user=RA3E9tkAAAAJ&amp;hl" target="_blank" rel="noopener" aria-label="Google Scholar" data-label="Scholar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9 12 4l9.5 5-9.5 5zM6 11.1v5.2c3.7 2.4 8.3 2.4 12 0v-5.2M21.5 9v6"/></svg></a>
+              <a href="https://www.xiaohongshu.com/user/profile/648985f9000000001001df94" target="_blank" rel="noopener" aria-label="Xiaohongshu" data-label="RedNote"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="5"/><path d="M7 9h10M7 13h10M9.5 8v7M14.5 8v7"/></svg></a>
+            </div>
           </div>
+        </div>
+        <div class="portrait-stage reveal">
+          <div class="portrait-frame"><img src="pic/indentification.png" alt="Portrait of Qi Lu" width="1024" height="1536"><div class="portrait-shade"></div></div>
+          <div class="portrait-index"><span>01</span><span>Researcher profile</span></div>
+          <div class="floating-note note-a">Multimodal<br>Learning</div>
+          <div class="floating-note note-b">AI × Finance<br><span>Next chapter</span></div>
+        </div>
+      </div>
+      <div class="hero-foot" aria-hidden="true"><span>Wuhan, China</span><span class="hero-foot-line"></span><span>Scroll to explore</span><span>↓</span></div>
+    </section>
+
+    <section class="section news-section" id="news">
+      <div class="section-heading reveal"><div><span class="section-number">01</span><p>Updates &amp; milestones</p></div><h2>Latest news</h2></div>
+      <div class="news-layout">
+        <div class="news-feature reveal"><span class="news-year">2026</span><p>Research across video agents, controllable generation, and visual privacy.</p><div class="news-signal" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+        <ol class="news-list">
+          <li class="reveal"><time datetime="2026-08">2026.08</time><span class="news-dot"></span><p>A paper on <strong>video deep research</strong> was accepted to <span class="venue-pill">EMNLP 2026</span>.</p></li>
+          <li class="reveal"><time datetime="2026-07">2026.07</time><span class="news-dot"></span><p>Two papers on controllable video generation and image privacy protection were accepted to <span class="venue-pill">ACM MM 2026</span>.</p></li>
+          <li class="reveal"><time datetime="2026-06">2026.06</time><span class="news-dot"></span><p>Recognized as an <strong>Outstanding Camper</strong> at the Shanghai Innovation Institute Summer Camp 2026.</p></li>
+          <li class="reveal"><time datetime="2026-03">2026.03</time><span class="news-dot"></span><p>A paper on diffusion image editing models was accepted to <span class="venue-pill">ICME 2026</span>.</p></li>
+          <li class="reveal"><time datetime="2025-09">2025.09</time><span class="news-dot"></span><p>Received the <strong>National Scholarship</strong>, the highest honor for undergraduates in China.</p></li>
+          <li class="reveal"><time datetime="2025-09">2025.09</time><span class="news-dot"></span><p>A paper on segmentation models was accepted to <span class="venue-pill">IEEE TMM 2025</span>.</p></li>
+          <li class="reveal"><time datetime="2024-09">2024.09</time><span class="news-dot"></span><p>Received the <strong>National Scholarship</strong>, the highest honor for undergraduates in China.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section publications-section" id="publications">
+      <div class="section-heading reveal"><div><span class="section-number">02</span><p>Selected peer-reviewed work</p></div><h2>Publications</h2></div>
+      <div class="pub-legend reveal" aria-label="Author contribution legend"><span><b>*</b> Equal contribution</span><span><b>§</b> Corresponding author</span><span><b>†</b> Project leader</span></div>
+      <div class="publication-list">
+        <article class="publication featured-publication reveal">
+          <button class="publication-image" type="button" data-lightbox="paperpic/5-emnlp26.png" aria-label="Enlarge Video-DeepResearch pipeline"><img src="paperpic/5-emnlp26.png" alt="Video-DeepResearch pipeline" width="2262" height="1962" loading="lazy"><span class="image-zoom">View pipeline <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span></button>
+          <div class="publication-copy"><div class="publication-topline"><span class="pub-index">05</span><span class="pub-venue">EMNLP 2026</span></div><h3>Video-DeepResearch: Towards the Next-Generation Multimodal Deepresearch Agent</h3><p class="authors">Video-DeepResearch Team</p><div class="publication-links"><a href="https://arxiv.org/pdf/2608.03979" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 13h6M9 17h4"/></svg> PDF</a><a href="https://costaliya.github.io/Video-DeepResearch" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4.1l2-2a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1M14 10a4.5 4.5 0 0 0-6.4-.1l-2 2A4.5 4.5 0 0 0 12 18.3l1.1-1.1"/></svg> Project page</a></div></div>
+        </article>
+
+        <article class="publication reveal">
+          <button class="publication-image" type="button" data-lightbox="paperpic/4-mm26-tempjail.png" aria-label="Enlarge TempJail pipeline"><img src="paperpic/4-mm26-tempjail.png" alt="TempJail pipeline" width="2506" height="1342" loading="lazy"><span class="image-zoom">View pipeline <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span></button>
+          <div class="publication-copy"><div class="publication-topline"><span class="pub-index">04</span><span class="pub-venue">ACM Multimedia 2026</span></div><h3>TempJail: Temporal Jailbreak Attacks against Image-to-Video Generation Models</h3><p class="authors"><strong>Qi Lu<sup>†*</sup></strong>, Zehui Guo<sup>*</sup>, David Yuanda Gan<sup>*</sup>, Zijing Li, Hengda Zhang, Weijun Xu, Qiankun Zhang<sup>§</sup></p><div class="contribution-tags"><span><b>†</b> Project leader</span><span><b>*</b> Equal contribution</span></div><div class="publication-links"><span class="link-disabled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 13h6M9 17h4"/></svg> PDF forthcoming</span><a href="https://github.com/luqi-glory/TempJail" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.63.57-3.18-1.12-3.18-1.12-.43-1.1-1.05-1.39-1.05-1.39-.86-.58.07-.57.07-.57.95.07 1.45.98 1.45.98.84 1.44 2.21 1.02 2.75.78.08-.61.33-1.02.6-1.26-2.1-.24-4.31-1.05-4.31-4.67 0-1.03.37-1.87.97-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.56.97A8.9 8.9 0 0 1 12 6.94a8.9 8.9 0 0 1 2.34.31c1.77-1.22 2.56-.97 2.56-.97.51 1.3.19 2.26.09 2.5.6.66.97 1.5.97 2.53 0 3.63-2.22 4.43-4.33 4.66.34.3.64.87.64 1.75v2.65c0 .25.17.55.65.45A9.3 9.3 0 0 0 12 2.7z" fill="currentColor" stroke="none"/></svg> Code</a></div></div>
+        </article>
+
+        <article class="publication reveal">
+          <button class="publication-image" type="button" data-lightbox="paperpic/3-mm26-cloakdiff.png" aria-label="Enlarge privacy protection pipeline"><img src="paperpic/3-mm26-cloakdiff.png" alt="Imperceptible and reversible adversarial examples pipeline" width="2090" height="1386" loading="lazy"><span class="image-zoom">View pipeline <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span></button>
+          <div class="publication-copy"><div class="publication-topline"><span class="pub-index">03</span><span class="pub-venue">ACM Multimedia 2026</span></div><h3>Imperceptible and Reversible Adversarial Examples against Vision-Language Models for Privacy Protection</h3><p class="authors"><strong>Qi Lu</strong>, Ziqi Zhou, Yufei Song<sup>§</sup>, Zijing Li, Lulu Xue, Minghui Li, Shengshan Hu, Leo Yu Zhang</p><div class="publication-links"><a href="https://arxiv.org/pdf/2607.10329" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 13h6M9 17h4"/></svg> PDF</a><a href="https://github.com/luqi-glory/CloakDiff" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.63.57-3.18-1.12-3.18-1.12-.43-1.1-1.05-1.39-1.05-1.39-.86-.58.07-.57.07-.57.95.07 1.45.98 1.45.98.84 1.44 2.21 1.02 2.75.78.08-.61.33-1.02.6-1.26-2.1-.24-4.31-1.05-4.31-4.67 0-1.03.37-1.87.97-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.56.97A8.9 8.9 0 0 1 12 6.94a8.9 8.9 0 0 1 2.34.31c1.77-1.22 2.56-.97 2.56-.97.51 1.3.19 2.26.09 2.5.6.66.97 1.5.97 2.53 0 3.63-2.22 4.43-4.33 4.66.34.3.64.87.64 1.75v2.65c0 .25.17.55.65.45A9.3 9.3 0 0 0 12 2.7z" fill="currentColor" stroke="none"/></svg> Code</a></div></div>
+        </article>
+
+        <article class="publication reveal">
+          <button class="publication-image" type="button" data-lightbox="paperpic/2-icme26.png" aria-label="Enlarge AnyBreak pipeline"><img src="paperpic/2-icme26.png" alt="AnyBreak pipeline" width="2058" height="698" loading="lazy"><span class="image-zoom">View pipeline <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span></button>
+          <div class="publication-copy"><div class="publication-topline"><span class="pub-index">02</span><span class="pub-venue">ICME 2026</span></div><h3>AnyBreak: Towards Jailbreaking Any T2I Model for Any Concept</h3><p class="authors"><strong>Qi Lu<sup>§*</sup></strong>, Zehui Guo<sup>*</sup>, Yucheng Zhao, Zijing Li, Chuhan Song, Wenrui Zhu</p><div class="contribution-tags"><span><b>§</b> Corresponding author</span><span><b>*</b> Equal contribution</span></div><div class="publication-links"><span class="link-disabled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 13h6M9 17h4"/></svg> PDF forthcoming</span><a href="https://github.com/luqi-glory/AnyBreak" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.63.57-3.18-1.12-3.18-1.12-.43-1.1-1.05-1.39-1.05-1.39-.86-.58.07-.57.07-.57.95.07 1.45.98 1.45.98.84 1.44 2.21 1.02 2.75.78.08-.61.33-1.02.6-1.26-2.1-.24-4.31-1.05-4.31-4.67 0-1.03.37-1.87.97-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.56.97A8.9 8.9 0 0 1 12 6.94a8.9 8.9 0 0 1 2.34.31c1.77-1.22 2.56-.97 2.56-.97.51 1.3.19 2.26.09 2.5.6.66.97 1.5.97 2.53 0 3.63-2.22 4.43-4.33 4.66.34.3.64.87.64 1.75v2.65c0 .25.17.55.65.45A9.3 9.3 0 0 0 12 2.7z" fill="currentColor" stroke="none"/></svg> Code</a></div></div>
+        </article>
+
+        <article class="publication reveal">
+          <button class="publication-image" type="button" data-lightbox="paperpic/1-tmm25.png" aria-label="Enlarge SegTrans pipeline"><img src="paperpic/1-tmm25.png" alt="SegTrans pipeline" width="2394" height="1230" loading="lazy"><span class="image-zoom">View pipeline <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M8 21H3v-5M16 21h5v-5"/></svg></span></button>
+          <div class="publication-copy"><div class="publication-topline"><span class="pub-index">01</span><span class="pub-venue">IEEE TMM 2025</span></div><h3>SegTrans: Transferable Adversarial Examples for Segmentation Models</h3><p class="authors">Yufei Song, Ziqi Zhou<sup>§</sup>, <strong>Qi Lu</strong>, Hangtao Zhang, Yifan Hu, Lulu Xue, Shengshan Hu</p><div class="publication-links"><a href="https://arxiv.org/pdf/2510.08922" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2.5h8l4 4v15H6zM14 2.5v4h4M9 13h6M9 17h4"/></svg> PDF</a><a href="https://github.com/Yufei-17/SegTrans" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.7a9.3 9.3 0 0 0-2.94 18.12c.47.09.64-.2.64-.45v-1.8c-2.63.57-3.18-1.12-3.18-1.12-.43-1.1-1.05-1.39-1.05-1.39-.86-.58.07-.57.07-.57.95.07 1.45.98 1.45.98.84 1.44 2.21 1.02 2.75.78.08-.61.33-1.02.6-1.26-2.1-.24-4.31-1.05-4.31-4.67 0-1.03.37-1.87.97-2.53-.1-.24-.42-1.2.09-2.5 0 0 .79-.25 2.56.97A8.9 8.9 0 0 1 12 6.94a8.9 8.9 0 0 1 2.34.31c1.77-1.22 2.56-.97 2.56-.97.51 1.3.19 2.26.09 2.5.6.66.97 1.5.97 2.53 0 3.63-2.22 4.43-4.33 4.66.34.3.64.87.64 1.75v2.65c0 .25.17.55.65.45A9.3 9.3 0 0 0 12 2.7z" fill="currentColor" stroke="none"/></svg> Code</a></div></div>
         </article>
       </div>
     </section>
 
-    <section id="notes" class="shell">
-      <div class="section-head reveal">
-        <h2>一些短记</h2>
-        <a href="#about">随时更新</a>
-      </div>
-      <div class="notes reveal">
-        <article class="note"><time datetime="2026-08-12">08 / 12</time><h3>好的界面，应该给人留一点呼吸。</h3><p>设计不是填满空间，而是理解空白。</p></article>
-        <article class="note"><time datetime="2026-08-03">08 / 03</time><h3>散步是最低成本的思维整理术。</h3><p>脚步有节奏以后，思绪也会慢慢排成队。</p></article>
-        <article class="note"><time datetime="2026-07-27">07 / 27</time><h3>先做一件能用的小东西。</h3><p>真实世界的反馈，比脑海里的完美更有价值。</p></article>
+    <section class="section experience-section" id="experience">
+      <div class="section-heading reveal"><div><span class="section-number">03</span><p>Research network</p></div><h2>Collaboration<br>&amp; internship</h2></div>
+      <div class="experience-grid">
+        <article class="institution-card reveal"><div class="institution-logo square-logo"><img src="pic/institution/北京大学.png" alt="Peking University logo" loading="lazy"></div><div><span class="institution-type">Collaboration</span><h3>Peking University</h3><p>PKU · Beijing, China</p></div><span class="card-arrow">↗</span></article>
+        <a class="institution-card reveal" href="https://www.hust.edu.cn/" target="_blank" rel="noopener"><div class="institution-logo wide-logo"><img src="pic/institution/华中科技大学.png" alt="Huazhong University of Science and Technology logo" loading="lazy"></div><div><span class="institution-type">Collaboration</span><h3>Huazhong University of Science and Technology</h3><p>HUST · Wuhan, China</p></div><span class="card-arrow">↗</span></a>
+        <article class="institution-card reveal"><div class="institution-logo tall-logo"><img src="pic/institution/南京大学.png" alt="Nanjing University logo" loading="lazy"></div><div><span class="institution-type">Collaboration</span><h3>Nanjing University</h3><p>NJU · Nanjing, China</p></div><span class="card-arrow">↗</span></article>
+        <article class="institution-card reveal"><div class="institution-logo wide-logo"><img src="pic/institution/ucl.png" alt="University College London logo" loading="lazy"></div><div><span class="institution-type">Collaboration</span><h3>University College London</h3><p>UCL · London, United Kingdom</p></div><span class="card-arrow">↗</span></article>
+        <a class="institution-card dark-card reveal" href="https://lightingread.cn/lightest/" target="_blank" rel="noopener"><div class="institution-logo brand-logo"><img src="pic/institution/lightread.png" alt="LightRead logo" loading="lazy"></div><div><span class="institution-type">Internship</span><h3>LightRead</h3><p>Research Scientist</p></div><span class="card-arrow">↗</span></a>
+        <article class="institution-card reveal"><div class="institution-logo square-logo"><img src="pic/institution/中国科学技术大学.png" alt="University of Science and Technology of China logo" loading="lazy"></div><div><span class="institution-type">Internship</span><h3>University of Science and Technology of China</h3><p>USTC · Hefei, China</p></div><span class="card-arrow">↗</span></article>
       </div>
     </section>
 
-    <section id="about" class="about shell reveal">
-      <div class="about-label">About ThinkWave / 关于这里</div>
-      <p class="about-copy">ThinkWave 是我的数字花园。它不追逐热点，只记录那些值得反复咀嚼的想法——关于<em>人与技术</em>，也关于如何更清醒地生活。</p>
+    <section class="section education-section" id="education">
+      <div class="section-heading reveal"><div><span class="section-number">04</span><p>Academic formation</p></div><h2>Education</h2></div>
+      <div class="education-list">
+        <article class="education-item reveal"><time>2023.09 — 2027.06 <span>Expected</span></time><div><h3>Bachelor of Engineering</h3><p>Cybersecurity</p></div><a href="https://www.hust.edu.cn/" target="_blank" rel="noopener">Huazhong University of Science and Technology <span>↗</span></a></article>
+        <article class="education-item reveal"><time>2020.09 — 2023.06</time><div><h3>High School Diploma</h3><p>General studies</p></div><a href="https://cdshishi.net/" target="_blank" rel="noopener">Chengdu Shishi High School <span>↗</span></a></article>
+      </div>
     </section>
+
+    <section class="contact-section"><div class="contact-inner reveal"><p>Open to conversations about research, collaboration, and new ideas.</p><a href="mailto:lq123456988@qq.com"><span>Let’s create something meaningful.</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20 20 4M8 4h12v12"/></svg></a></div></section>
   </main>
 
-  <footer>
-    <div class="footer-inner shell">
-      <p>© <span id="year">2026</span> ThinkWave. 在思想的浪潮里保持清醒。</p>
-      <div class="footer-links"><a href="mailto:hello@thinkwave.cn">Email</a><a href="#top">回到顶部 ↑</a></div>
-    </div>
-  </footer>
+  <footer><div class="footer-inner"><div><span class="footer-mark">QL</span><p>Qi Lu · Artificial Intelligence Researcher</p></div><p>© <span id="year">2026</span> Qi Lu. Built with curiosity.</p><a href="#top">Back to top ↑</a></div></footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-  </script>
+  <dialog class="lightbox" aria-label="Expanded research pipeline"><button class="lightbox-close" type="button" aria-label="Close image">×</button><div class="lightbox-canvas"><img src="" alt="Expanded research pipeline"></div><p>Click outside the image or press Esc to close</p></dialog>
+  <script src="script.js"></script>
 </body>
 </html>
