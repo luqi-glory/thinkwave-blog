@@ -67,7 +67,9 @@ sections.forEach((section) => sectionObserver.observe(section));
 
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox.querySelector('img');
+let lightboxRequest = 0;
 const closeLightbox = () => {
+  lightboxRequest += 1;
   lightbox.close();
   document.body.classList.remove('lightbox-open');
   lightboxImage.removeAttribute('src');
@@ -75,10 +77,21 @@ const closeLightbox = () => {
 
 document.querySelectorAll('[data-lightbox]').forEach((button) => {
   button.addEventListener('click', () => {
-    lightboxImage.src = button.dataset.lightbox;
-    lightboxImage.alt = button.querySelector('img').alt;
+    const preview = button.querySelector('img');
+    const request = ++lightboxRequest;
+    lightboxImage.src = preview.currentSrc || preview.src;
+    lightboxImage.alt = preview.alt;
     lightbox.showModal();
     document.body.classList.add('lightbox-open');
+
+    const fullResolution = new Image();
+    fullResolution.decoding = 'async';
+    fullResolution.src = button.dataset.lightbox;
+    fullResolution.decode().then(() => {
+      if (request === lightboxRequest && lightbox.open) {
+        lightboxImage.src = fullResolution.src;
+      }
+    }).catch(() => {});
   });
 });
 

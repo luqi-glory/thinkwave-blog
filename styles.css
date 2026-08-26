@@ -208,10 +208,41 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .js .reveal.will-reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1); }
 .js .reveal.will-reveal.visible { opacity: 1; transform: none; }
 
+/* Refined editorial layout: quieter hierarchy, lighter first paint. */
+.hero-inner { grid-template-columns: minmax(0, 1.32fr) minmax(300px, .68fr); gap: clamp(55px, 7vw, 105px); }
+.hero-copy { padding-top: 0; }
+.hero h1 { font-size: clamp(76px, 8.5vw, 126px); line-height: .9; }
+.hero-bio { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(25px, 3vw, 42px); max-width: 830px; margin-top: 46px; font-size: 13.5px; line-height: 1.75; }
+.hero-actions { margin-top: 34px; }
+.portrait-stage { width: min(100%, 380px); }
+.portrait-frame { aspect-ratio: 2 / 3; }
+
+.section-heading { display: flex; align-items: center; gap: clamp(22px, 3vw, 42px); margin-bottom: 48px; }
+.section-heading::after { flex: 1; height: 1px; content: ""; background: var(--line); }
+.section-heading h2 { flex: 0 1 auto; font-size: clamp(42px, 5vw, 70px); letter-spacing: -.045em; line-height: 1; }
+.section-heading h2 span { color: var(--coral); font-style: italic; }
+.publications-section .section-heading::after { background: rgba(255,255,255,.16); }
+
+.news-section { padding-bottom: 125px; }
+.news-layout { display: block; }
+.news-list { width: min(100%, 1100px); margin-left: auto; }
+.news-list li { grid-template-columns: 105px minmax(0, 1fr); gap: clamp(22px, 4vw, 54px); padding: 25px 0; }
+.news-list time { letter-spacing: .035em; }
+.news-list p { font-size: clamp(18px, 1.75vw, 23px); }
+
+.publication, .institution-card { content-visibility: auto; }
+.publication { contain-intrinsic-size: 500px; }
+.institution-card { contain-intrinsic-size: 350px; }
+.publication-image img, .institution-logo img, .portrait-frame img { background-color: #fff; }
+
+footer { padding: 34px 26px; }
+.footer-inner { grid-template-columns: 1fr auto; align-items: center; }
+.footer-inner > p { justify-self: start; }
+
 @media (max-width: 1050px) {
   .nav-wrap { grid-template-columns: 1fr auto; }
   .site-nav { display: none; }
-  .hero-inner { grid-template-columns: 1.05fr .75fr; gap: 45px; }
+  .hero-inner { grid-template-columns: 1.1fr .7fr; gap: 45px; }
   .hero-bio { grid-template-columns: 1fr; gap: 13px; }
   .publication { grid-template-columns: 1fr; gap: 38px; }
   .featured-publication .publication-image { min-height: 430px; }
@@ -232,22 +263,22 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
   .site-nav.open { opacity: 1; pointer-events: auto; transform: none; }
   .site-nav a { font-family: var(--serif); font-size: 34px; }
   .hero { padding-top: 100px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 62px; min-height: auto; }
-  .hero h1 { font-size: clamp(78px, 24vw, 122px); }
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; min-height: auto; }
+  .hero h1 { font-size: clamp(70px, 21vw, 104px); }
   .cn-name { font-size: .3em; }
   .hero-kicker { font-size: 31px; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .primary-action { width: min(100%, 260px); }
-  .portrait-stage { width: calc(100% - 28px); margin: 0 auto; }
+  .portrait-stage { width: min(calc(100% - 42px), 320px); margin: 0 auto; }
   .note-a { left: -16px; }
   .note-b { right: -16px; }
   .hero-foot { width: calc(100% - 30px); margin-top: 55px; }
   .section { width: calc(100% - 30px); padding: 88px 0; }
-  .section-heading { grid-template-columns: 1fr; gap: 23px; margin-bottom: 40px; }
-  .section-heading h2 { font-size: 55px; }
+  .section-heading { display: flex; gap: 18px; margin-bottom: 35px; }
+  .section-heading h2 { font-size: clamp(39px, 12vw, 49px); }
   .news-layout { grid-template-columns: 1fr; }
   .news-feature { position: relative; top: auto; min-height: 300px; }
-  .news-list li { grid-template-columns: 68px 8px 1fr; gap: 10px; }
+  .news-list li { grid-template-columns: 68px minmax(0, 1fr); gap: 14px; }
   .publications-section { width: 100%; padding: 88px 15px; }
   .pub-legend { justify-content: flex-start; gap: 13px; margin: -18px 0 28px; font-size: 8px; }
   .publication { min-height: 0; padding: 36px 0 48px; }
