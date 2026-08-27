@@ -154,12 +154,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .institution-card { position: relative; display: flex; flex-direction: column; min-height: 350px; padding: 25px; overflow: hidden; background: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.64); transition: transform .3s, box-shadow .3s, background .3s; }
 .institution-card:hover { z-index: 2; background: rgba(255,255,255,.75); box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
 .institution-logo { display: grid; place-items: center; height: 148px; margin-bottom: auto; padding: 18px; }
-.institution-logo img { width: 100%; height: 100%; object-fit: contain; }
-.square-logo img { max-width: 120px; }
-.wide-logo img { max-width: 215px; }
-.tall-logo img { max-width: 95px; }
-.brand-logo { background: #070707; }
-.brand-logo img { max-width: 230px; }
+.institution-logo img { width: auto; max-width: 100%; height: 96px; object-fit: contain; }
 .institution-type { display: inline-block; margin-top: 22px; color: var(--coral); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .institution-card h3 { max-width: 310px; margin: 8px 0 5px; font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.25; }
 .institution-card p { margin: 0; color: var(--muted); font-size: 11px; }

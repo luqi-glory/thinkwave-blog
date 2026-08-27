@@ -73,6 +73,14 @@ const emailReveal = document.getElementById('email-reveal');
 const copyEmail = document.getElementById('copy-email');
 const contactForm = document.getElementById('contact-form');
 const contactAddress = 'lq123456988@qq.com';
+const backToTop = document.querySelector('.back-to-top');
+
+backToTop.addEventListener('click', (event) => {
+  event.preventDefault();
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+  history.replaceState(null, '', `${location.pathname}${location.search}`);
+});
 
 const closeContact = () => {
   contactDialog.close();

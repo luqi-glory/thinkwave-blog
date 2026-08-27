@@ -22,9 +22,9 @@
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body id="top">
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="nav-wrap">
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
@@ -132,8 +132,8 @@
       <div class="section-heading reveal"><h2>Acknowledgements</h2></div>
       <div class="ack-intro reveal"><span>With gratitude</span><p>In no particular order · arranged randomly.</p></div>
       <div class="ack-grid">
-        <article class="ack-card ack-card-wide reveal"><span class="ack-affiliation">University College London</span><h3><a href="https://diidnen.github.io/" target="_blank" rel="noopener">Chuhan Song</a></h3><p>Close academic collaborator and former classmate.</p></article>
-        <article class="ack-card ack-card-feature reveal"><span class="ack-affiliation">Huazhong University of Science and Technology</span><h3><a href="https://github.com/lijiandao" target="_blank" rel="noopener">Zijing Li</a></h3><p>Founder of <a href="https://lightingread.cn/" target="_blank" rel="noopener">LightRead</a> and <a href="https://lightingread.cn/lightest/" target="_blank" rel="noopener">LightTest</a>. A close, long-standing academic collaborator and advisor across LightRead and LightTest.</p></article>
+        <article class="ack-card ack-card-wide reveal"><span class="ack-affiliation">Huazhong University of Science and Technology</span><h3><a href="https://github.com/lijiandao" target="_blank" rel="noopener">Zijing Li</a></h3><p>Founder of <a href="https://lightingread.cn/" target="_blank" rel="noopener">LightRead</a> and <a href="https://lightingread.cn/lightest/" target="_blank" rel="noopener">LightTest</a>. A close, long-standing academic collaborator and advisor across LightRead and LightTest.</p></article>
+        <article class="ack-card ack-card-feature reveal"><span class="ack-affiliation">University College London</span><h3><a href="https://diidnen.github.io/" target="_blank" rel="noopener">Chuhan Song</a></h3><p>Close academic collaborator and former classmate.</p></article>
         <article class="ack-card ack-card-small reveal"><span class="ack-affiliation">Tsinghua University</span><h3>Rui Li</h3><p>Good friend and high school classmate.</p></article>
         <article class="ack-card ack-card-tall reveal"><span class="ack-affiliation">Southeast University</span><h3><a href="https://scholar.google.com/citations?user=ptcnWOkAAAAJ&amp;hl=en&amp;authuser=1" target="_blank" rel="noopener">Yilun Zhu</a></h3><p>Academic collaborator whose conversations continually spark new ideas.</p></article>
         <article class="ack-card reveal"><span class="ack-affiliation">Huazhong University of Science and Technology</span><h3><a href="https://iayce.github.io/" target="_blank" rel="noopener">Shengjie Xu</a></h3><p>Academic collaborator and innovation competition teammate.</p></article>
@@ -145,7 +145,7 @@
 
   </main>
 
-  <footer><div class="footer-inner"><p>© <span id="year">2026</span> Qi Lu. Built with curiosity.</p><a href="#top">Back to top ↑</a></div></footer>
+  <footer><div class="footer-inner"><p>© <span id="year">2026</span> Qi Lu. Built with curiosity.</p><a class="back-to-top" href="#top">Back to top ↑</a></div></footer>
 
   <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
     <button class="contact-close" type="button" aria-label="Close contact form">×</button>
