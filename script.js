@@ -65,6 +65,62 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach((section) => sectionObserver.observe(section));
 
+const contactDialog = document.querySelector('.contact-dialog');
+const contactTriggers = document.querySelectorAll('.contact-trigger');
+const contactClose = contactDialog.querySelector('.contact-close');
+const showEmail = document.getElementById('show-email');
+const emailReveal = document.getElementById('email-reveal');
+const copyEmail = document.getElementById('copy-email');
+const contactForm = document.getElementById('contact-form');
+const contactAddress = 'lq123456988@qq.com';
+
+const closeContact = () => {
+  contactDialog.close();
+  document.body.classList.remove('contact-open');
+};
+
+contactTriggers.forEach((trigger) => trigger.addEventListener('click', () => {
+  nav.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+  contactDialog.showModal();
+  document.body.classList.add('contact-open');
+}));
+
+contactClose.addEventListener('click', closeContact);
+contactDialog.addEventListener('click', (event) => {
+  if (event.target === contactDialog) closeContact();
+});
+contactDialog.addEventListener('close', () => document.body.classList.remove('contact-open'));
+
+showEmail.addEventListener('click', () => {
+  const revealing = emailReveal.hidden;
+  emailReveal.hidden = !revealing;
+  showEmail.setAttribute('aria-expanded', String(revealing));
+  showEmail.textContent = revealing ? 'Hide email' : 'Show email';
+});
+
+copyEmail.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(contactAddress);
+    copyEmail.textContent = 'Copied';
+    setTimeout(() => { copyEmail.textContent = 'Copy'; }, 1600);
+  } catch {
+    window.location.href = `mailto:${contactAddress}`;
+  }
+});
+
+contactForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const data = new FormData(contactForm);
+  const name = String(data.get('name') || '').trim() || 'Anonymous';
+  const sender = String(data.get('email') || '').trim();
+  const message = String(data.get('message') || '').trim();
+  const subject = `Website message from ${name}`;
+  const body = [`Name: ${name}`, sender ? `Email: ${sender}` : '', '', message].filter((line, index) => line || index > 1).join('\n');
+  window.location.href = `mailto:${contactAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+
 const lightbox = document.querySelector('.lightbox');
 const lightboxImage = lightbox.querySelector('img');
 let lightboxRequest = 0;

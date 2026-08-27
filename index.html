@@ -29,8 +29,9 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span></button>
       <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
         <a href="#about">About</a><a href="#news">News</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#acknowledgements">Thanks</a>
+        <button class="mobile-contact-trigger contact-trigger" type="button">Contact</button>
       </nav>
-      <a class="nav-contact" href="mailto:lq123456988@qq.com"><span>Get in touch</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></a>
+      <button class="nav-contact contact-trigger" type="button" aria-haspopup="dialog" aria-controls="contact-dialog"><span>Get in touch</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"/></svg></button>
     </div>
   </header>
 
@@ -110,12 +111,12 @@
     <section class="section experience-section" id="experience">
       <div class="section-heading reveal"><h2>Collaboration <span>&amp;</span> internship</h2></div>
       <div class="experience-grid">
-        <article class="institution-card reveal"><div class="institution-logo square-logo"><img src="assets/preview/pku.jpg" alt="Peking University logo" width="360" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>Peking University</h3><p>PKU · Beijing, China</p></div><span class="card-arrow">↗</span></article>
+        <a class="institution-card reveal" href="https://www.pku.edu.cn/" target="_blank" rel="noopener"><div class="institution-logo square-logo"><img src="assets/preview/pku.jpg" alt="Peking University logo" width="360" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>Peking University</h3><p>PKU · Beijing, China</p></div><span class="card-arrow">↗</span></a>
         <a class="institution-card reveal" href="https://www.hust.edu.cn/" target="_blank" rel="noopener"><div class="institution-logo wide-logo"><img src="assets/preview/hust.jpg" alt="Huazhong University of Science and Technology logo" width="520" height="401" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>Huazhong University of Science and Technology</h3><p>HUST · Wuhan, China</p></div><span class="card-arrow">↗</span></a>
-        <article class="institution-card reveal"><div class="institution-logo tall-logo"><img src="assets/preview/nju.jpg" alt="Nanjing University logo" width="294" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>Nanjing University</h3><p>NJU · Nanjing, China</p></div><span class="card-arrow">↗</span></article>
-        <article class="institution-card reveal"><div class="institution-logo wide-logo"><img src="assets/preview/ucl.jpg" alt="University College London logo" width="520" height="292" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>University College London</h3><p>UCL · London, United Kingdom</p></div><span class="card-arrow">↗</span></article>
-        <a class="institution-card dark-card reveal" href="https://lightingread.cn/" target="_blank" rel="noopener"><div class="institution-logo brand-logo"><img src="assets/preview/lightread.jpg" alt="LightRead logo" width="520" height="164" loading="lazy" decoding="async"></div><div><span class="institution-type">Internship</span><h3>LightRead</h3><p>Research Scientist</p></div><span class="card-arrow">↗</span></a>
-        <article class="institution-card reveal"><div class="institution-logo square-logo"><img src="assets/preview/ustc.jpg" alt="University of Science and Technology of China logo" width="360" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Internship</span><h3>University of Science and Technology of China</h3><p>USTC · Hefei, China</p></div><span class="card-arrow">↗</span></article>
+        <a class="institution-card reveal" href="https://www.nju.edu.cn/" target="_blank" rel="noopener"><div class="institution-logo tall-logo"><img src="assets/preview/nju.jpg" alt="Nanjing University logo" width="294" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>Nanjing University</h3><p>NJU · Nanjing, China</p></div><span class="card-arrow">↗</span></a>
+        <a class="institution-card reveal" href="https://www.ucl.ac.uk/" target="_blank" rel="noopener"><div class="institution-logo wide-logo"><img src="assets/preview/ucl.jpg" alt="University College London logo" width="520" height="292" loading="lazy" decoding="async"></div><div><span class="institution-type">Collaboration</span><h3>University College London</h3><p>UCL · London, United Kingdom</p></div><span class="card-arrow">↗</span></a>
+        <a class="institution-card reveal" href="https://lightingread.cn/" target="_blank" rel="noopener"><div class="institution-logo brand-logo"><img src="assets/preview/lightread.jpg" alt="LightRead logo" width="520" height="164" loading="lazy" decoding="async"></div><div><span class="institution-type">Internship</span><h3>LightRead</h3><p>Research Scientist</p></div><span class="card-arrow">↗</span></a>
+        <a class="institution-card reveal" href="https://www.ustc.edu.cn/" target="_blank" rel="noopener"><div class="institution-logo square-logo"><img src="assets/preview/ustc.jpg" alt="University of Science and Technology of China logo" width="360" height="360" loading="lazy" decoding="async"></div><div><span class="institution-type">Internship</span><h3>University of Science and Technology of China</h3><p>USTC · Hefei, China</p></div><span class="card-arrow">↗</span></a>
       </div>
     </section>
 
@@ -145,6 +146,29 @@
   </main>
 
   <footer><div class="footer-inner"><p>© <span id="year">2026</span> Qi Lu. Built with curiosity.</p><a href="#top">Back to top ↑</a></div></footer>
+
+  <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title">
+    <button class="contact-close" type="button" aria-label="Close contact form">×</button>
+    <div class="contact-dialog-inner">
+      <header class="contact-header"><span class="contact-icon" aria-hidden="true">✉</span><div><p>Start a conversation</p><h2 id="contact-title">Contact</h2></div></header>
+      <p class="contact-lead">If you’d like to discuss research, collaboration, or opportunities, feel free to reach out.</p>
+      <div class="email-controls">
+        <button class="secondary-button" id="show-email" type="button" aria-expanded="false" aria-controls="email-reveal">Show email</button>
+        <div class="email-reveal" id="email-reveal" hidden><a href="mailto:lq123456988@qq.com">lq123456988@qq.com</a><button id="copy-email" type="button">Copy</button></div>
+      </div>
+      <form class="contact-form" id="contact-form">
+        <h3>Leave a message</h3>
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Anonymous">
+        <label for="contact-email">Email <span>(optional)</span></label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="your@email.com">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" required placeholder="What would you like to talk about?"></textarea>
+        <button class="contact-submit" type="submit">Continue in email <span>↗</span></button>
+        <p class="contact-note">Your email app will open with the message prepared. Nothing is stored on this website.</p>
+      </form>
+    </div>
+  </dialog>
 
   <dialog class="lightbox" aria-label="Expanded research pipeline"><button class="lightbox-close" type="button" aria-label="Close image">×</button><div class="lightbox-canvas"><img src="" alt="Expanded research pipeline"></div><p>Click outside the image or press Esc to close</p></dialog>
   <script src="script.js"></script>
