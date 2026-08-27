@@ -288,8 +288,13 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .contact-form input, .contact-form textarea { width: 100%; padding: 12px 14px; color: var(--ink); background: rgba(255,255,255,.56); border: 1px solid var(--line); border-radius: 0; outline: 0; font: 14px/1.5 var(--sans); transition: border-color .2s, box-shadow .2s, background .2s; }
 .contact-form textarea { min-height: 125px; resize: vertical; }
 .contact-form input:focus, .contact-form textarea:focus { background: var(--white); border-color: var(--forest); box-shadow: 0 0 0 3px rgba(23,76,60,.08); }
+.contact-honeypot { position: absolute; left: -10000px; width: 1px !important; height: 1px; opacity: 0; pointer-events: none; }
 .contact-submit { display: inline-flex; align-items: center; justify-content: space-between; gap: 25px; width: fit-content; min-width: 185px; margin-top: 20px; padding: 13px 16px; color: var(--white); background: var(--forest); border: 0; cursor: pointer; font-size: 11px; font-weight: 800; letter-spacing: .04em; }
 .contact-submit:hover { background: var(--coral); }
+.contact-submit:disabled { cursor: wait; opacity: .62; }
+.contact-status { min-height: 18px; margin: 10px 0 0; font-size: 10px; font-weight: 700; }
+.contact-status.success { color: var(--forest); }
+.contact-status.error { color: var(--coral); }
 .contact-note { margin: 10px 0 0; color: var(--muted); font-size: 9px; }
 
 footer { padding: 34px 26px; }

@@ -72,7 +72,11 @@ const showEmail = document.getElementById('show-email');
 const emailReveal = document.getElementById('email-reveal');
 const copyEmail = document.getElementById('copy-email');
 const contactForm = document.getElementById('contact-form');
+const contactSubmit = contactForm.querySelector('.contact-submit');
+const contactSubmitLabel = contactForm.querySelector('.contact-submit-label');
+const contactStatus = document.getElementById('contact-status');
 const contactAddress = 'lq123456988@qq.com';
+const contactEndpoint = `https://formsubmit.co/ajax/${contactAddress}`;
 const backToTop = document.querySelector('.back-to-top');
 
 backToTop.addEventListener('click', (event) => {
@@ -118,15 +122,46 @@ copyEmail.addEventListener('click', async () => {
   }
 });
 
-contactForm.addEventListener('submit', (event) => {
+contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const data = new FormData(contactForm);
   const name = String(data.get('name') || '').trim() || 'Anonymous';
   const sender = String(data.get('email') || '').trim();
   const message = String(data.get('message') || '').trim();
-  const subject = `Website message from ${name}`;
-  const body = [`Name: ${name}`, sender ? `Email: ${sender}` : '', '', message].filter((line, index) => line || index > 1).join('\n');
-  window.location.href = `mailto:${contactAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const honeypot = String(data.get('_honey') || '').trim();
+  if (honeypot) return;
+
+  contactSubmit.disabled = true;
+  contactSubmitLabel.textContent = 'Sending…';
+  contactStatus.textContent = '';
+  contactStatus.className = 'contact-status';
+
+  try {
+    const response = await fetch(contactEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        name,
+        email: sender,
+        message,
+        _subject: `New thinkwave.cn message from ${name}`,
+        _template: 'table',
+        _url: window.location.href,
+      }),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.success === false) throw new Error('Submission failed');
+
+    contactForm.reset();
+    contactStatus.textContent = 'Message sent. Thank you — I’ll get back to you soon.';
+    contactStatus.classList.add('success');
+  } catch {
+    contactStatus.textContent = 'The message could not be sent. Please try again, or use the email address above.';
+    contactStatus.classList.add('error');
+  } finally {
+    contactSubmit.disabled = false;
+    contactSubmitLabel.textContent = 'Send message';
+  }
 });
 
 const lightbox = document.querySelector('.lightbox');
