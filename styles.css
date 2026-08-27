@@ -150,7 +150,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .publication-links .link-disabled { color: rgba(255,255,255,.33); cursor: default; }
 
 .experience-section { padding-bottom: 145px; }
-.experience-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .institution-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 22px; overflow: hidden; background: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.64); transition: transform .3s, box-shadow .3s, background .3s; }
 .institution-card:hover { z-index: 2; background: rgba(255,255,255,.75); box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
 .institution-logo { display: grid; place-items: center; height: 120px; margin-bottom: auto; padding: 12px; }
@@ -158,8 +158,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .institution-type { display: inline-block; margin-top: 17px; color: var(--coral); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .institution-card h3 { max-width: 310px; margin: 8px 0 5px; font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.25; }
 .institution-card p { margin: 0; color: var(--muted); font-size: 11px; }
+.institution-card p a { position: relative; z-index: 1; color: var(--forest); font-weight: 800; border-bottom: 1px solid var(--coral); }
 .card-arrow { position: absolute; right: 20px; top: 19px; display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid var(--line); border-radius: 50%; font-size: 13px; transition: color .2s, background .2s, transform .2s; }
-a.institution-card:hover .card-arrow { color: var(--paper); background: var(--forest); transform: rotate(45deg); }
+.institution-card:hover .card-arrow { color: var(--paper); background: var(--forest); transform: rotate(45deg); }
 .education-section { padding-top: 115px; }
 .education-list { border-top: 1px solid var(--line); }
 .education-item { display: grid; grid-template-columns: .65fr .8fr 1.25fr; gap: 30px; align-items: center; padding: 36px 0; border-bottom: 1px solid var(--line); }
