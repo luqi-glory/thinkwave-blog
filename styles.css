@@ -258,6 +258,10 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .ack-card-coral::after { border-color: rgba(255,255,255,.22); box-shadow: 0 0 0 24px rgba(255,255,255,.06); }
 .ack-card-coral .ack-affiliation, .ack-card-coral p { color: rgba(255,255,255,.76); }
 .ack-card-coral h3 { margin-top: 18px; }
+.ack-card-third { grid-column: span 4; min-height: 205px; }
+.ack-card-quarter { grid-column: span 3; min-height: 215px; }
+.ack-card strong { color: var(--ink); font-weight: 800; }
+.ack-card-dark strong, .ack-card-coral strong { color: var(--paper); }
 
 .contact-dialog { width: min(760px, calc(100% - 32px)); max-width: none; max-height: min(860px, calc(100dvh - 32px)); padding: 0; overflow: auto; color: var(--ink); background: var(--cream); border: 0; box-shadow: 0 35px 110px rgba(12,31,24,.3); }
 .contact-dialog::backdrop { background: rgba(10,22,18,.62); backdrop-filter: blur(5px); }
