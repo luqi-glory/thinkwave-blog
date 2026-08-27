@@ -150,7 +150,8 @@ contactForm.addEventListener('submit', async (event) => {
       }),
     });
     const result = await response.json().catch(() => ({}));
-    if (!response.ok || result.success === false) throw new Error('Submission failed');
+    const rejected = result.success === false || result.success === 'false';
+    if (!response.ok || rejected) throw new Error('Submission failed');
 
     contactForm.reset();
     contactStatus.textContent = 'Message sent. Thank you — I’ll get back to you soon.';
