@@ -114,6 +114,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .news-list p { margin: 0; font-family: var(--serif); font-size: clamp(18px, 2vw, 25px); line-height: 1.45; }
 .news-list strong { color: var(--forest); }
 .venue-pill { display: inline-block; padding: 1px 8px 2px; color: var(--paper); background: var(--forest); border-radius: 999px; font-family: var(--sans); font-size: .55em; font-weight: 800; letter-spacing: .05em; vertical-align: .16em; white-space: nowrap; }
+.challenge-link { color: var(--forest); border-bottom: 1px solid var(--coral); }
+.challenge-link .venue-pill { border-bottom: 0; }
 
 .publications-section { width: 100%; max-width: none; padding: 128px max(26px, calc((100vw - var(--max)) / 2)); color: var(--paper); background: var(--ink); }
 .publications-section .section-heading > div { border-color: rgba(255,255,255,.16); }
