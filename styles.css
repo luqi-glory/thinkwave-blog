@@ -247,13 +247,14 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .ack-card h3 { position: relative; z-index: 1; margin: 22px 0 8px; font-family: var(--serif); font-size: clamp(21px, 1.8vw, 27px); font-weight: 700; letter-spacing: -.025em; line-height: 1.15; }
 .ack-card h3 i { color: var(--coral); font-weight: 400; }
 .ack-card h3 a::after { display: inline-block; margin-left: 6px; content: "↗"; color: var(--coral); font-family: var(--sans); font-size: .45em; transform: translateY(-.55em); }
-.ack-card h3 a, .institution-card h3 a { position: relative; }
+.ack-card h3 a, .institution-card h3 a { position: relative; display: inline-block; }
 .ack-card h3 a::before, .institution-card h3 a::before { position: absolute; left: 0; bottom: -3px; width: 100%; height: 1px; content: ""; background: var(--coral); transform: scaleX(.25); transform-origin: left; transition: transform .25s ease; }
 .ack-card h3 a:hover::before, .institution-card h3 a:hover::before { transform: scaleX(1); }
 .ack-card p { position: relative; z-index: 1; max-width: 560px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .ack-card p a, .institution-card p a { position: relative; color: var(--forest); font-weight: 800; border-bottom: 0; }
 .ack-card p a::before, .institution-card p a::before { position: absolute; left: 0; bottom: -2px; width: 100%; height: 1px; content: ""; background: var(--coral); transform: scaleX(.25); transform-origin: left; transition: transform .25s ease; }
 .ack-card p a:hover::before, .institution-card p a:hover::before { transform: scaleX(1); }
+.ack-card p a { display: inline-block; }
 .ack-card-wide { grid-column: span 4; }
 .ack-card-feature { grid-column: span 8; min-height: 178px; background: var(--paper-2); border-top: 3px solid var(--coral); }
 .ack-card-feature h3 { font-size: clamp(24px, 2.2vw, 32px); }
@@ -271,6 +272,8 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .ack-card-coral h3 { margin-top: 18px; }
 .ack-card-coral h3, .ack-card-coral h3 a { color: var(--paper); }
 .ack-card-coral:hover { color: var(--paper); background: var(--coral); }
+.ack-card-coral p a { color: var(--paper); }
+.ack-card-coral p a::before { background: var(--paper); }
 .ack-card-corner { background: rgba(23,76,60,.06); border-top: 2px solid var(--forest); }
 .ack-card-outline { background: transparent; border-color: rgba(23,76,60,.28); }
 .ack-card-note { background: var(--paper-2); border-style: dashed; }
@@ -340,11 +343,11 @@ footer { padding: 34px 26px; }
   .nav-toggle span { display: block; width: 25px; height: 1px; background: var(--ink); transition: transform .25s; }
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .site-nav { position: absolute; top: 0; left: 0; z-index: 200; display: flex; flex-direction: column; gap: 15px; align-items: flex-start; justify-content: flex-start; width: 100vw; height: 100dvh; padding: 100px 35px 70px; overflow-y: auto; background: rgba(244, 241, 233, .99); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: opacity .25s, transform .25s; }
+  .site-nav { position: absolute; top: 0; left: 0; z-index: 200; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; justify-content: flex-start; width: 100vw; height: 100dvh; padding: 88px 35px 50px; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; touch-action: pan-y; background: rgba(244, 241, 233, .99); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: opacity .25s, transform .25s; }
   .site-nav.open { opacity: 1; pointer-events: auto; transform: none; }
   body.menu-open main, body.menu-open footer { visibility: hidden; }
-  .site-nav a { font-family: var(--serif); font-size: 34px; }
-  .mobile-contact-trigger { display: block; padding: 0; color: var(--coral); background: transparent; border: 0; font-family: var(--serif); font-size: 34px; cursor: pointer; }
+  .site-nav a { font-family: var(--serif); font-size: clamp(27px, 8vw, 34px); line-height: 1.05; }
+  .mobile-contact-trigger { display: block; padding: 0; color: var(--coral); background: transparent; border: 0; font-family: var(--serif); font-size: clamp(27px, 8vw, 34px); line-height: 1.05; cursor: pointer; }
   .hero { padding-top: 100px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; min-height: auto; }
   .hero h1 { gap: .13em; font-size: clamp(50px, 14.6vw, 62px); }

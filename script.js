@@ -25,6 +25,7 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
   nav.classList.toggle('open', !open);
   document.body.classList.toggle('menu-open', !open);
+  if (!open) nav.scrollTop = 0;
 });
 
 navLinks.forEach((link) => link.addEventListener('click', () => {
