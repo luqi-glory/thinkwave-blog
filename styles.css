@@ -158,8 +158,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .institution-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 22px; overflow: hidden; background: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.64); transition: transform .3s, box-shadow .3s, background .3s; }
 .institution-card:hover { z-index: 2; background: rgba(255,255,255,.75); box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
-.institution-logo { display: grid; place-items: center; height: 120px; margin-bottom: auto; padding: 12px; }
-.institution-logo img { width: auto; max-width: 100%; height: 96px; object-fit: contain; }
+.institution-logo { display: grid; place-items: center; height: 150px; margin-bottom: auto; padding: 8px; }
+.institution-logo img { width: auto; max-width: 100%; height: 124px; object-fit: contain; }
 .institution-type { display: inline-block; margin-top: 17px; color: var(--coral); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .institution-card h3 { max-width: 310px; margin: 8px 0 5px; font-family: var(--serif); font-size: 22px; font-weight: 500; line-height: 1.25; }
 .institution-card p { margin: 0; color: var(--muted); font-size: 11px; }
@@ -212,7 +212,7 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .latin-name { display: inline-flex; gap: .28em; }
 .name-divider { color: var(--coral); font-weight: 400; }
 .cn-name { margin: 0; color: var(--ink); font-size: 1em; letter-spacing: -.02em; vertical-align: baseline; -webkit-text-stroke: 0; transform: none; }
-.hero-bio { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(25px, 3vw, 42px); max-width: 870px; margin-top: 46px; font-size: clamp(14.5px, 1.05vw, 16px); line-height: 1.72; }
+.hero-bio { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); gap: clamp(25px, 3vw, 42px); max-width: 870px; margin-top: 46px; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.68; }
 .hero-actions { margin-top: 34px; }
 .portrait-stage { width: min(100%, 330px); }
 .portrait-frame { aspect-ratio: 2 / 3; }
@@ -400,7 +400,7 @@ footer { padding: 34px 26px; }
 
 @media (max-width: 430px) {
   .primary-action { width: 100%; }
-  .hero-bio { font-size: 13px; }
+  .hero-bio { font-size: 14px; }
   .news-list p { font-size: 17px; }
   .publication-image, .featured-publication .publication-image { min-height: 205px; }
   .publication-links { flex-direction: column; align-items: stretch; }
