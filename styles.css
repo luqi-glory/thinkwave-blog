@@ -332,7 +332,7 @@ footer { padding: 34px 26px; }
 @media (max-width: 760px) {
   html { scroll-padding-top: 74px; }
   /* Keep the mobile navigation reachable at every scroll position. */
-  .site-header.hidden { transform: none; }
+  .site-header, .site-header.hidden { z-index: 1000; transform: none; }
   .site-header { background: rgba(244, 241, 233, .92); border-color: var(--line); backdrop-filter: blur(15px); }
   .nav-wrap { width: calc(100% - 30px); min-height: 70px; }
   .nav-contact { display: none; }
@@ -340,8 +340,9 @@ footer { padding: 34px 26px; }
   .nav-toggle span { display: block; width: 25px; height: 1px; background: var(--ink); transition: transform .25s; }
   .nav-toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
   .nav-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .site-nav { position: fixed; inset: 0; display: flex; flex-direction: column; gap: 15px; align-items: flex-start; justify-content: center; padding: 70px 35px; background: var(--paper); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: opacity .25s, transform .25s; }
+  .site-nav { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; gap: 15px; align-items: flex-start; justify-content: center; padding: 70px 35px; background: rgba(244, 241, 233, .99); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: opacity .25s, transform .25s; }
   .site-nav.open { opacity: 1; pointer-events: auto; transform: none; }
+  body.menu-open main, body.menu-open footer { visibility: hidden; }
   .site-nav a { font-family: var(--serif); font-size: 34px; }
   .mobile-contact-trigger { display: block; padding: 0; color: var(--coral); background: transparent; border: 0; font-family: var(--serif); font-size: 34px; cursor: pointer; }
   .hero { padding-top: 100px; }
