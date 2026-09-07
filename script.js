@@ -11,7 +11,7 @@ function updateChrome() {
   const maximum = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.width = `${maximum > 0 ? (y / maximum) * 100 : 0}%`;
   header.classList.toggle('scrolled', y > 24);
-  header.classList.toggle('hidden', y > previousY && y > 520 && !document.body.classList.contains('menu-open'));
+  header.classList.toggle('hidden', y > previousY && y > 520 && !document.body.classList.contains('menu-open') && !document.body.classList.contains('contact-open'));
   previousY = y;
 }
 
@@ -20,6 +20,7 @@ updateChrome();
 
 toggle.addEventListener('click', () => {
   const open = toggle.getAttribute('aria-expanded') === 'true';
+  header.classList.remove('hidden');
   toggle.setAttribute('aria-expanded', String(!open));
   toggle.setAttribute('aria-label', open ? 'Open navigation' : 'Close navigation');
   nav.classList.toggle('open', !open);
@@ -92,6 +93,7 @@ const closeContact = () => {
 };
 
 contactTriggers.forEach((trigger) => trigger.addEventListener('click', () => {
+  header.classList.remove('hidden');
   nav.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
   document.body.classList.remove('menu-open');
