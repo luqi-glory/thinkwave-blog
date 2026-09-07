@@ -331,6 +331,9 @@ footer { padding: 34px 26px; }
 
 @media (max-width: 760px) {
   html { scroll-padding-top: 74px; }
+  /* Keep the mobile navigation reachable at every scroll position. */
+  .site-header.hidden { transform: none; }
+  .site-header { background: rgba(244, 241, 233, .92); border-color: var(--line); backdrop-filter: blur(15px); }
   .nav-wrap { width: calc(100% - 30px); min-height: 70px; }
   .nav-contact { display: none; }
   .nav-toggle { grid-column: 2; z-index: 2; display: grid; gap: 6px; justify-self: end; width: 38px; height: 38px; padding: 10px 6px; }
@@ -378,7 +381,7 @@ footer { padding: 34px 26px; }
   .ack-card:hover, .ack-card-tall:hover { transform: translateY(-3px); }
   .ack-card h3, .ack-card-feature h3 { margin-top: 20px; font-size: 23px; }
   .ack-card p { font-size: 10.5px; }
-  .contact-dialog { width: calc(100% - 18px); max-height: calc(100dvh - 18px); }
+  .contact-dialog { position: fixed; inset: 9px; width: calc(100% - 18px); max-height: calc(100dvh - 18px); margin: auto; }
   .contact-dialog-inner { padding: 28px 20px 32px; }
   .contact-lead { font-size: 17px; }
   .contact-submit { width: 100%; }
