@@ -45,9 +45,9 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .nav-toggle { display: none; border: 0; background: transparent; }
 .mobile-contact-trigger { display: none; }
 
-.hero { position: relative; min-height: 100svh; padding: 128px 0 46px; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero { position: relative; min-height: auto; padding: 128px 0 38px; overflow: hidden; border-bottom: 1px solid var(--line); }
 .hero::before { position: absolute; top: -10%; right: -5%; width: 55vw; height: 55vw; content: ""; border-radius: 50%; background: radial-gradient(circle, rgba(231,96,61,.15), rgba(231,96,61,0) 67%); pointer-events: none; }
-.hero-inner { display: grid; grid-template-columns: minmax(0, 1.13fr) minmax(370px, .87fr); align-items: center; gap: clamp(50px, 7vw, 120px); width: min(var(--max), calc(100% - 52px)); min-height: calc(100svh - 220px); margin: 0 auto; }
+.hero-inner { display: grid; grid-template-columns: minmax(0, 1.13fr) minmax(370px, .87fr); align-items: center; gap: clamp(50px, 7vw, 120px); width: min(var(--max), calc(100% - 52px)); min-height: 0; margin: 0 auto; }
 .hero-copy { position: relative; z-index: 2; min-width: 0; padding-top: 18px; }
 .eyebrow { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; color: var(--forest); font-size: 11px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
 .eyebrow span { display: block; width: 34px; height: 1px; background: var(--coral); }
@@ -170,10 +170,11 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .education-list { position: relative; width: min(100%, 940px); padding: 8px 0; }
 .education-list::before { position: absolute; top: 22px; bottom: 22px; left: 142px; width: 1px; content: ""; background: var(--line); }
 .education-item { position: relative; display: grid; grid-template-columns: 120px 44px minmax(0, 1fr); gap: 0; align-items: center; min-height: 126px; padding: 22px 0; }
-.education-brand { display: grid; place-items: center; width: 102px; height: 88px; padding: 4px; }
-.education-brand img { width: auto; max-width: 100%; height: auto; max-height: 82px; object-fit: contain; }
+.education-brand { display: grid; place-items: center; width: 112px; height: 96px; padding: 4px; }
+.education-brand img { width: auto; max-width: 100%; height: auto; max-height: 90px; object-fit: contain; }
 .education-node { position: relative; z-index: 1; justify-self: center; width: 14px; height: 14px; border: 2px solid var(--muted); border-radius: 50%; background: var(--paper); }
 .education-current .education-node { border-color: var(--forest); background: var(--forest); box-shadow: 0 0 0 5px rgba(23,76,60,.1); }
+.education-solid .education-node { border-color: var(--forest); background: var(--forest); }
 .education-copy { min-width: 0; padding-left: 22px; }
 .education-copy time { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; letter-spacing: .06em; }
 .education-copy time span { display: inline-block; margin-left: 7px; padding: 3px 6px; color: var(--forest); background: rgba(23,76,60,.1); font-size: 8px; text-transform: uppercase; }
@@ -381,8 +382,8 @@ footer { padding: 34px 26px; }
   .education-list { padding: 8px 0; }
   .education-list::before { top: 18px; bottom: 18px; left: 75px; }
   .education-item { grid-template-columns: 64px 22px minmax(0, 1fr); min-height: 124px; padding: 17px 0; }
-  .education-brand { width: 58px; height: 68px; padding: 2px; }
-  .education-brand img { max-height: 62px; }
+  .education-brand { width: 66px; height: 74px; padding: 2px; }
+  .education-brand img { max-height: 68px; }
   .education-copy { padding-left: 12px; }
   .education-copy h3 { font-size: clamp(20px, 5.5vw, 27px); }
   .education-copy p { font-size: 11px; line-height: 1.45; }
