@@ -434,16 +434,15 @@ footer { padding: 34px 26px; }
   .honor-item { grid-template-columns: 86px minmax(0, 1fr); gap: 15px; min-height: 72px; padding: 19px 16px; }
   .honor-item time { font-size: 11px; }
   .honor-item p { font-size: 14px; }
-  .honor-item p { font-size: 11px; }
   .acknowledgements-section { padding-top: 55px; padding-bottom: 65px; }
   .acknowledgements-section .section-heading { margin-bottom: 28px; }
   .acknowledgements-section .section-heading h2 { font-size: clamp(32px, 9vw, 38px); }
   .ack-intro { align-items: flex-start; flex-direction: column; gap: 6px; margin-top: -12px; }
-  .ack-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 76%; gap: 10px; padding-bottom: 10px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; scrollbar-width: thin; }
-  .ack-card, .ack-card-wide, .ack-card-feature, .ack-card-small, .ack-card-tall, .ack-card-dark, .ack-card-pair, .ack-card-coral { grid-column: auto; min-height: 116px; margin: 0; transform: none; scroll-snap-align: start; }
+  .ack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row; gap: 8px; padding-bottom: 0; overflow: visible; }
+  .ack-card, .ack-card-wide, .ack-card-feature, .ack-card-small, .ack-card-tall, .ack-card-dark, .ack-card-pair, .ack-card-coral { grid-column: auto; min-height: 116px; margin: 0; transform: none; }
   .ack-grid .ack-card { padding: 17px; }
   .ack-card:hover, .ack-card-tall:hover { transform: translateY(-3px); }
-  .ack-card h3, .ack-card-feature h3 { margin-top: 20px; font-size: 23px; }
+  .ack-card h3, .ack-card-feature h3 { margin-top: 10px; font-size: 19px; }
   .ack-card p { font-size: 10.5px; }
   .contact-dialog { position: fixed; inset: 9px; width: calc(100% - 18px); max-height: calc(100dvh - 18px); margin: auto; }
   .contact-dialog-inner { padding: 28px 20px 32px; }
