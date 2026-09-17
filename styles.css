@@ -156,8 +156,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 .experience-section { padding-bottom: 145px; }
 .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-.institution-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 22px; overflow: hidden; background: rgba(255,255,255,.42); border: 1px solid rgba(255,255,255,.64); transition: transform .3s, box-shadow .3s, background .3s; }
-.institution-card:hover { z-index: 2; background: rgba(255,255,255,.75); box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
+.institution-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 22px; overflow: hidden; background: transparent; border: 1px solid rgba(23,76,60,.18); transition: transform .3s, box-shadow .3s, background .3s; }
+.institution-card:hover { z-index: 2; background: rgba(255,255,255,.24); box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
 .institution-logo { display: grid; place-items: center; height: 150px; margin-bottom: auto; padding: 8px; }
 .institution-logo img { width: auto; max-width: 100%; height: 124px; object-fit: contain; }
 .institution-type { display: inline-block; margin-top: 17px; color: var(--coral); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
@@ -182,6 +182,13 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .education-copy h3 a { color: var(--forest); }
 .education-copy p { margin: 0; color: var(--muted); font-size: 13px; }
 .education-copy p a { color: var(--forest); font-weight: 700; border-bottom: 1px solid var(--coral); }
+
+.honors-section { padding-top: 96px; }
+.honors-list { width: min(100%, 940px); border-top: 1px solid var(--line); }
+.honor-item { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 34px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.honor-item time { color: var(--coral); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.honor-item h3 { margin: 0 0 5px; font-family: var(--serif); font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; line-height: 1.1; }
+.honor-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 
 .contact-section { padding: 40px 26px 0; }
 .contact-inner { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 520px; padding: clamp(45px, 6vw, 90px); overflow: hidden; color: var(--paper); background: var(--coral); }
@@ -388,6 +395,10 @@ footer { padding: 34px 26px; }
   .education-copy h3 { font-size: clamp(20px, 5.5vw, 27px); }
   .education-copy p { font-size: 11px; line-height: 1.45; }
   .education-node { width: 11px; height: 11px; }
+  .honors-section { padding-top: 65px; }
+  .honor-item { grid-template-columns: 82px minmax(0, 1fr); gap: 14px; padding: 18px 0; }
+  .honor-item h3 { font-size: 22px; }
+  .honor-item p { font-size: 11px; }
   .acknowledgements-section { padding-top: 55px; padding-bottom: 65px; }
   .acknowledgements-section .section-heading { margin-bottom: 28px; }
   .acknowledgements-section .section-heading h2 { font-size: clamp(32px, 9vw, 38px); }
