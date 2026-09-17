@@ -63,6 +63,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .text-link::before { position: absolute; left: 0; bottom: -2px; width: 100%; height: 1px; content: ""; background: var(--coral); transform: scaleX(.25); transform-origin: left; transition: transform .25s ease; }
 .text-link:hover::before { transform: scaleX(1); }
 .hero-bio .text-link::before { display: none; }
+.hero-bio .text-link:hover, .hero-bio .text-link:focus-visible, .hero-bio .text-link:visited { color: var(--forest); }
 .news-list .campus-link { font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 38px; }
 .primary-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-width: 220px; padding: 15px 19px; color: var(--white); background: var(--forest); border-radius: 2px; font-size: 12px; font-weight: 750; transition: background .25s ease, transform .25s ease; }
