@@ -52,6 +52,39 @@ document.querySelectorAll('.reveal').forEach((element, index) => {
   revealObserver.observe(element);
 });
 
+const newsList = document.querySelector('.news-list');
+const newsToggle = document.querySelector('.news-toggle');
+newsToggle.addEventListener('click', () => {
+  const expanded = newsList.classList.toggle('is-expanded');
+  newsToggle.setAttribute('aria-expanded', String(expanded));
+  newsToggle.querySelector('span').textContent = expanded ? 'Show latest 10' : 'View all news';
+});
+
+const ackGrid = document.querySelector('.ack-grid');
+const ackCards = [...ackGrid.querySelectorAll('.ack-card')].sort((a, b) => {
+  const name = (card) => card.querySelector('h3')?.textContent.trim().toLocaleLowerCase() || '';
+  return name(a).localeCompare(name(b));
+});
+ackCards.forEach((card) => {
+  ackGrid.appendChild(card);
+  card.setAttribute('role', 'button');
+  card.setAttribute('tabindex', '0');
+  card.setAttribute('aria-expanded', 'false');
+  const toggleCard = () => {
+    const open = card.classList.toggle('is-open');
+    card.setAttribute('aria-expanded', String(open));
+  };
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('a')) return;
+    toggleCard();
+  });
+  card.addEventListener('keydown', (event) => {
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    toggleCard();
+  });
+});
+
 // A browser may jump to a URL fragment before IntersectionObserver settles.
 // Deep links should always prioritize readable content over entrance animation.
 if (window.location.hash) {
