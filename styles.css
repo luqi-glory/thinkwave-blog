@@ -65,6 +65,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .hero-bio .text-link::before { display: none; }
 .hero-bio .text-link:visited { color: var(--forest); }
 .hero-bio .text-link:hover, .hero-bio .text-link:focus-visible { color: var(--coral); }
+.stair-label { color: var(--forest); }
 .news-list .campus-link { font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; margin-top: 38px; }
 .primary-action { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; min-width: 220px; padding: 15px 19px; color: var(--white); background: var(--forest); border-radius: 2px; font-size: 12px; font-weight: 750; transition: background .25s ease, transform .25s ease; }
@@ -223,6 +224,14 @@ footer { padding: 50px 26px; color: var(--paper); background: var(--ink); }
 .js .reveal.will-reveal.visible { opacity: 1; transform: none; }
 
 /* Refined editorial layout: quieter hierarchy, lighter first paint. */
+main { display: flex; flex-direction: column; }
+.hero { order: 1; }
+.news-section { order: 2; }
+.publications-section { order: 3; }
+.honors-section { order: 4; }
+.education-section { order: 5; }
+.experience-section { order: 6; }
+.acknowledgements-section { order: 7; }
 .hero-inner { grid-template-columns: minmax(0, 1fr) minmax(245px, .42fr); gap: clamp(48px, 5vw, 78px); }
 .hero-copy { padding-top: 0; }
 .hero h1 { display: flex; align-items: baseline; gap: .18em; white-space: nowrap; font-size: clamp(62px, 7.1vw, 106px); letter-spacing: -.055em; line-height: .95; }
