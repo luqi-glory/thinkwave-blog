@@ -185,10 +185,13 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .education-copy p a { color: var(--forest); font-weight: 700; border-bottom: 1px solid var(--coral); }
 
 .honors-section { padding-top: 96px; }
-.honors-list { display: grid; width: min(100%, 940px); gap: 10px; }
-.honor-item { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 34px; align-items: center; padding: 18px 20px; border: 1px solid rgba(23,76,60,.16); border-radius: 3px; background: rgba(255,255,255,.2); }
-.honor-item time { color: var(--coral); font-size: 11px; font-weight: 800; letter-spacing: .1em; }
-.honor-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.honors-list { display: grid; width: 100%; gap: 12px; }
+.honor-item { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 38px; align-items: center; min-height: 78px; padding: 25px 32px; overflow: hidden; border: 1px solid rgba(23,76,60,.2); border-radius: 3px; background: rgba(255,255,255,.2); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease; }
+.honor-item::before { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; content: ""; background: var(--coral); transform: scaleY(.28); transform-origin: center; transition: transform .3s ease; }
+.honor-item:hover { z-index: 1; background: rgba(255,255,255,.52); border-color: rgba(231,96,61,.48); box-shadow: 0 14px 34px rgba(29,38,32,.1); transform: translateX(8px); }
+.honor-item:hover::before { transform: scaleY(1); }
+.honor-item time { color: var(--coral); font-size: 14px; font-weight: 800; letter-spacing: .1em; }
+.honor-item p { margin: 0; color: var(--muted); font-size: 17px; line-height: 1.55; }
 
 .contact-section { padding: 40px 26px 0; }
 .contact-inner { position: relative; display: flex; flex-direction: column; justify-content: space-between; min-height: 520px; padding: clamp(45px, 6vw, 90px); overflow: hidden; color: var(--paper); background: var(--coral); }
@@ -396,7 +399,9 @@ footer { padding: 34px 26px; }
   .education-copy p { font-size: 11px; line-height: 1.45; }
   .education-node { width: 11px; height: 11px; }
   .honors-section { padding-top: 65px; }
-  .honor-item { grid-template-columns: 82px minmax(0, 1fr); gap: 14px; padding: 15px 14px; }
+  .honor-item { grid-template-columns: 86px minmax(0, 1fr); gap: 15px; min-height: 72px; padding: 19px 16px; }
+  .honor-item time { font-size: 11px; }
+  .honor-item p { font-size: 14px; }
   .honor-item p { font-size: 11px; }
   .acknowledgements-section { padding-top: 55px; padding-bottom: 65px; }
   .acknowledgements-section .section-heading { margin-bottom: 28px; }
