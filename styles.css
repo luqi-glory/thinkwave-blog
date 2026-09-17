@@ -457,11 +457,6 @@ footer { padding: 34px 26px; }
   .lightbox img { max-width: 100%; }
 }
 
-@media (max-width: 900px) {
-  .ack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row; gap: 8px; padding-bottom: 0; overflow: visible; }
-  .ack-grid .ack-card { grid-column: auto; min-height: 116px; margin: 0; }
-}
-
 @media (max-width: 430px) {
   .primary-action { width: 100%; }
   .hero-bio { font-size: 14px; }
