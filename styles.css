@@ -263,7 +263,8 @@ main { display: flex; flex-direction: column; }
 .news-toggle span:last-child { font-size: 16px; transition: transform .25s ease; }
 .news-toggle[aria-expanded="true"] span:last-child { transform: rotate(180deg); }
 
-.publication-image img, .institution-logo img, .portrait-frame img { background-color: #fff; }
+.publication-image img, .portrait-frame img { background-color: #fff; }
+.institution-logo img { background: transparent; mix-blend-mode: multiply; }
 .publication-topline { justify-content: flex-start; }
 
 .acknowledgements-section { padding-top: 82px; padding-bottom: 95px; }
