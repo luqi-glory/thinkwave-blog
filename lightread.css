@@ -95,7 +95,7 @@ body.lr-menu-open { overflow: hidden; }
   .lr-hero, .lr-brochure { width: calc(100% - 30px); }
   .lr-hero { gap: 29px; padding: 56px 0 65px; }
   .lr-hero h1 { font-size: clamp(58px, 16vw, 82px); }
-  .lr-lede { margin-top: 21px; font-size: 23px; }
+  .lr-lede { margin-top: 21px; font-size: 20px; }
   .lr-positioning { font-size: 12px; }
   .lr-role { margin-top: 20px; font-size: 10px; }
   .lr-actions { display: grid; grid-template-columns: 1fr; }
