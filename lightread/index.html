@@ -14,7 +14,8 @@
 <body class="lightread-page">
   <header class="lr-header">
     <a class="lr-brand" href="/" aria-label="Back to Qi Lu's homepage"><span class="lr-brand-mark" aria-hidden="true">←</span><span>Back to Qi Lu</span></a>
-    <nav aria-label="LightRead page navigation">
+    <button class="lr-nav-toggle" type="button" aria-expanded="false" aria-controls="lr-page-nav" aria-label="Open navigation"><span></span><span></span></button>
+    <nav id="lr-page-nav" aria-label="LightRead page navigation">
       <a href="#overview">Overview</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#gallery">Gallery</a>
@@ -42,7 +43,7 @@
 
     <section class="lr-capabilities section" id="capabilities">
       <div class="lr-section-heading">
-        <h2>One workspace.<br><em>More room to think.</em></h2>
+        <h2>One workspace. <em>More room to think.</em></h2>
       </div>
       <div class="lr-capability-grid">
         <article class="lr-capability">
@@ -67,7 +68,7 @@
             <li>Real-time processing capabilities</li>
           </ul>
         </article>
-        <article class="lr-capability lr-capability-accent">
+        <article class="lr-capability">
           <span class="lr-capability-index">03</span>
           <h3>LightTest</h3>
           <p>A companion environment for turning natural-language requests into practical computing workflows.</p>
@@ -101,5 +102,6 @@
   </main>
 
   <footer class="lr-footer"><a href="/">← Back to Qi Lu's homepage</a><span>LightRead · Research Scientist since July 2025</span><a href="https://lightingread.cn/" target="_blank" rel="noopener">Official website ↗</a></footer>
+  <script src="/lightread.js" defer></script>
 </body>
 </html>
