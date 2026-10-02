@@ -95,7 +95,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .hero-foot { display: flex; align-items: center; gap: 16px; width: min(var(--max), calc(100% - 52px)); margin: 28px auto 0; color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
 .hero-foot-line { flex: 1; height: 1px; background: var(--line); }
 
-.section { width: min(var(--max), calc(100% - 52px)); margin: 0 auto; padding: 128px 0; }
+.section { width: min(var(--max), calc(100% - 52px)); margin: 0 auto; padding: 94px 0; }
 .section[id] { scroll-margin-top: 110px; }
 .section-heading { display: grid; grid-template-columns: .8fr 1.2fr; align-items: end; gap: 45px; margin-bottom: 58px; }
 .section-heading > div { display: flex; align-items: center; gap: 18px; padding-bottom: 9px; border-bottom: 1px solid var(--line); }
@@ -103,7 +103,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .section-number { display: grid; place-items: center; width: 31px; height: 31px; color: var(--paper); background: var(--coral); border-radius: 50%; font-family: var(--serif); font-size: 12px; }
 .section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(50px, 6.7vw, 96px); font-weight: 500; letter-spacing: -.06em; line-height: .92; }
 
-.news-section { padding-bottom: 145px; }
+.news-section { padding-bottom: 92px; }
 .news-layout { display: grid; grid-template-columns: .68fr 1.32fr; gap: clamp(45px, 7vw, 105px); align-items: start; }
 .news-feature { position: sticky; top: 120px; min-height: 430px; padding: 38px; overflow: hidden; color: var(--paper); background: var(--forest-deep); }
 .news-feature::after { position: absolute; right: -90px; bottom: -110px; width: 300px; height: 300px; content: ""; border: 1px solid rgba(255,255,255,.13); border-radius: 50%; box-shadow: 0 0 0 34px rgba(255,255,255,.04), 0 0 0 70px rgba(255,255,255,.025); }
@@ -158,7 +158,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .publication-links svg { width: 16px; height: 16px; }
 .publication-links .link-disabled { color: rgba(255,255,255,.33); cursor: default; }
 
-.experience-section { padding-bottom: 145px; }
+.experience-section { padding-bottom: 92px; }
 .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 .institution-card { position: relative; display: flex; flex-direction: column; min-height: 300px; padding: 22px; overflow: hidden; background: transparent !important; border: 1px solid rgba(23,76,60,.18); transition: transform .3s, box-shadow .3s; }
 .institution-card:hover { z-index: 2; background: transparent !important; box-shadow: 0 25px 65px rgba(29,38,32,.12); transform: translateY(-6px); }
@@ -170,7 +170,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .institution-card p a { position: relative; z-index: 1; color: var(--forest); font-weight: 800; border-bottom: 1px solid var(--coral); }
 .card-arrow { position: absolute; right: 20px; top: 19px; display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid var(--line); border-radius: 50%; font-size: 13px; transition: color .2s, background .2s, transform .2s; }
 .institution-card:hover .card-arrow { color: var(--paper); background: var(--forest); transform: rotate(45deg); }
-.education-section { padding-top: 115px; }
+.education-section { padding-top: 88px; }
 .education-list { position: relative; width: min(100%, 940px); padding: 8px 0; }
 .education-list::before { position: absolute; top: 22px; bottom: 22px; left: 142px; width: 1px; content: ""; background: var(--line); }
 .education-item { position: relative; display: grid; grid-template-columns: 120px 44px minmax(0, 1fr); gap: 0; align-items: center; min-height: 126px; padding: 22px 0; }
@@ -187,7 +187,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 .education-copy p { margin: 0; color: var(--muted); font-size: 13px; }
 .education-copy p a { color: var(--forest); font-weight: 700; border-bottom: 1px solid var(--coral); }
 
-.honors-section { padding-top: 96px; }
+.honors-section { padding-top: 78px; }
 .honors-list { display: grid; width: 100%; gap: 12px; }
 .honor-item { position: relative; display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 38px; align-items: center; min-height: 78px; padding: 25px 32px; overflow: hidden; border: 1px solid rgba(23,76,60,.2); border-radius: 3px; background: rgba(255,255,255,.2); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease, background .3s ease; }
 .honor-item::before { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; content: ""; background: var(--coral); transform: scaleY(.28); transform-origin: center; transition: transform .3s ease; }
@@ -242,17 +242,17 @@ main { display: flex; flex-direction: column; }
 .hero-bio { display: block; max-width: none; margin-top: 42px; font-size: clamp(16px, 1.15vw, 18px); line-height: 1.68; }
 .hero-bio p { max-width: none; }
 .hero-actions { margin-top: 34px; }
-.portrait-stage { width: min(100%, 300px); }
+.portrait-stage { width: min(100%, 232px); }
 .portrait-frame { aspect-ratio: 2 / 3; }
 .portrait-stage::before, .hero-orbit { display: none; }
 
-.section-heading { display: flex; align-items: center; gap: clamp(22px, 3vw, 42px); margin-bottom: 48px; }
+.section-heading { display: flex; align-items: center; gap: clamp(22px, 3vw, 42px); margin-bottom: 40px; }
 .section-heading::after { flex: 1; height: 1px; content: ""; background: var(--line); }
 .section-heading h2 { flex: 0 1 auto; font-size: clamp(42px, 5vw, 70px); letter-spacing: -.045em; line-height: 1; }
 .section-heading h2 span { color: var(--coral); font-style: italic; }
 .publications-section .section-heading::after { background: rgba(255,255,255,.16); }
 
-.news-section { padding-bottom: 125px; }
+.news-section { padding-bottom: 92px; }
 .news-layout { display: block; }
 .news-list { width: 100%; margin-left: 0; }
 .news-list li { grid-template-columns: 105px minmax(0, 1fr); gap: clamp(22px, 4vw, 54px); padding: 25px 0; }
@@ -268,7 +268,7 @@ main { display: flex; flex-direction: column; }
 .institution-logo img { background: transparent; mix-blend-mode: multiply; }
 .publication-topline { justify-content: flex-start; }
 
-.acknowledgements-section { padding-top: 82px; padding-bottom: 95px; }
+.acknowledgements-section { padding-top: 72px; padding-bottom: 82px; }
 .acknowledgements-section .section-heading { margin-bottom: 34px; }
 .acknowledgements-section .section-heading h2 { font-size: clamp(38px, 4.4vw, 60px); }
 .ack-intro { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin: -13px 0 26px; color: var(--muted); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
@@ -410,8 +410,8 @@ footer { padding: 34px 26px; }
   .note-a { left: -16px; }
   .note-b { right: -16px; }
   .hero-foot { width: calc(100% - 30px); margin-top: 55px; font-size: 11px; }
-  .section { width: calc(100% - 30px); padding: 88px 0; }
-  .section-heading { display: flex; gap: 18px; margin-bottom: 35px; }
+  .section { width: calc(100% - 30px); padding: 66px 0; }
+  .section-heading { display: flex; gap: 18px; margin-bottom: 30px; }
   .section-heading h2 { font-size: clamp(39px, 12vw, 49px); }
   .news-layout { grid-template-columns: 1fr; }
   .news-feature { position: relative; top: auto; min-height: 300px; }
@@ -433,11 +433,11 @@ footer { padding: 34px 26px; }
   .education-copy h3 { font-size: clamp(20px, 5.5vw, 27px); }
   .education-copy p { font-size: 11px; line-height: 1.45; }
   .education-node { width: 11px; height: 11px; }
-  .honors-section { padding-top: 65px; }
+  .honors-section { padding-top: 58px; }
   .honor-item { grid-template-columns: 86px minmax(0, 1fr); gap: 15px; min-height: 72px; padding: 19px 16px; }
   .honor-item time { font-size: 11px; }
   .honor-item p { font-size: 14px; }
-  .acknowledgements-section { padding-top: 55px; padding-bottom: 65px; }
+  .acknowledgements-section { padding-top: 48px; padding-bottom: 54px; }
   .acknowledgements-section .section-heading { margin-bottom: 28px; }
   .acknowledgements-section .section-heading h2 { font-size: clamp(32px, 9vw, 38px); }
   .ack-intro { align-items: flex-start; flex-direction: column; gap: 6px; margin-top: -12px; }
