@@ -7,7 +7,7 @@
 .pub-collection { width: min(var(--max), calc(100% - 52px)); margin: 0 auto; padding: clamp(48px, 7vw, 90px) 0 125px; }
 .pub-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; padding-bottom: 23px; border-bottom: 1px solid var(--line); }
 .pub-section-heading .pub-kicker { margin-bottom: 12px; }
-.pub-section-heading h2 { margin: 0; font-family: var(--sans); font-size: clamp(32px, 3.4vw, 46px); font-weight: 800; letter-spacing: -.045em; line-height: 1.08; }
+.pub-section-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(38px, 5vw, 62px); font-weight: 500; letter-spacing: -.055em; line-height: 1; }
 .pub-legend { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 22px; }
 .pub-legend span, .pub-contributions span { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; color: var(--muted); background: rgba(255,255,255,.48); border: 1px solid rgba(19,33,27,.08); font-size: 9px; font-weight: 650; letter-spacing: .025em; }
 .pub-legend b, .pub-contributions b { color: var(--coral); font-size: 12px; }
@@ -50,7 +50,7 @@
 @media (max-width: 680px) {
   .pub-collection { width: calc(100% - 30px); padding-top: 42px; padding-bottom: 75px; }
   .pub-section-heading { display: block; margin-bottom: 22px; }
-  .pub-section-heading h2 { font-size: clamp(29px, 8.5vw, 36px); }
+  .pub-section-heading h2 { font-size: 43px; }
   .pub-legend { gap: 6px; }
   .pub-legend span { padding: 6px 8px; font-size: 8px; }
   .pub-list { gap: 12px; }
