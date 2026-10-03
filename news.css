@@ -1,0 +1,29 @@
+.news-archive-page .lr-header { grid-template-columns: minmax(0, 1fr) auto; }
+.news-archive-page .lr-header-cta { grid-column: 2; }
+.news-archive-page .lr-nav-toggle { display: none; }
+.news-archive-intro { display: flex; align-items: end; justify-content: space-between; gap: 28px; width: min(var(--max), calc(100% - 52px)); margin: 0 auto; padding: clamp(52px, 7vw, 84px) 0 35px; border-bottom: 1px solid var(--line); }
+.news-archive-kicker { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; color: var(--forest); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.news-archive-kicker span { width: 25px; height: 1px; background: var(--coral); }
+.news-archive-intro h1 { margin: 0; font-family: var(--serif); font-size: clamp(58px, 8vw, 92px); font-weight: 500; letter-spacing: -.065em; line-height: .9; }
+.news-archive-intro > p { margin: 0 0 7px; color: var(--muted); font-family: var(--serif); font-size: clamp(17px, 1.8vw, 23px); }
+.news-archive { width: min(var(--max), calc(100% - 52px)); margin: 0 auto; padding-bottom: 105px; }
+.news-archive-list { border-top: 0; }
+.news-archive-list li { grid-template-columns: 105px 12px minmax(0, 1fr); gap: clamp(18px, 3vw, 38px); align-items: baseline; padding: 25px 0; }
+.news-archive-dot { position: relative; top: -2px; width: 7px; height: 7px; background: var(--forest); border-radius: 50%; }
+.news-archive-list p { font-size: clamp(18px, 1.65vw, 22px); }
+.news-archive-list .text-link { color: var(--forest); }
+.news-archive-list .text-link::after { background: var(--coral); }
+.news-archive-list .challenge-link { color: var(--forest); }
+@media (max-width: 1050px) {
+  .news-archive-page .lr-header-cta { display: inline-flex; }
+}
+@media (max-width: 680px) {
+  .news-archive-intro, .news-archive { width: calc(100% - 30px); }
+  .news-archive-intro { align-items: flex-start; flex-direction: column; gap: 14px; padding: 46px 0 25px; }
+  .news-archive-intro h1 { font-size: 61px; }
+  .news-archive-intro > p { font-size: 16px; }
+  .news-archive { padding-bottom: 70px; }
+  .news-archive-list li { grid-template-columns: 68px 8px minmax(0, 1fr); gap: 12px; padding: 19px 0; }
+  .news-archive-list time { font-size: 12px; }
+  .news-archive-list p { font-size: 16px; line-height: 1.55; }
+}

@@ -52,14 +52,6 @@ document.querySelectorAll('.reveal').forEach((element, index) => {
   revealObserver.observe(element);
 });
 
-const newsList = document.querySelector('.news-list');
-const newsToggle = document.querySelector('.news-toggle');
-newsToggle.addEventListener('click', () => {
-  const expanded = newsList.classList.toggle('is-expanded');
-  newsToggle.setAttribute('aria-expanded', String(expanded));
-  newsToggle.querySelector('span').textContent = expanded ? 'Show latest 10' : 'View all news';
-});
-
 const ackGrid = document.querySelector('.ack-grid');
 const ackCards = [...ackGrid.querySelectorAll('.ack-card')].sort((a, b) => {
   const name = (card) => card.querySelector('h3')?.textContent.trim().toLocaleLowerCase() || '';

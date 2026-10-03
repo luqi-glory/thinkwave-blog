@@ -258,11 +258,9 @@ main { display: flex; flex-direction: column; }
 .news-list li { grid-template-columns: 105px minmax(0, 1fr); gap: clamp(22px, 4vw, 54px); padding: 25px 0; }
 .news-list time { letter-spacing: .035em; }
 .news-list p { font-size: clamp(18px, 1.75vw, 23px); }
-.news-collapsible { display: none !important; }
-.news-list.is-expanded .news-collapsible { display: grid !important; }
-.news-toggle { display: inline-flex; align-items: center; gap: 18px; margin-top: 20px; padding: 10px 0; color: var(--forest); background: transparent; border: 0; border-bottom: 1px solid var(--coral); cursor: pointer; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.news-toggle span:last-child { font-size: 16px; transition: transform .25s ease; }
-.news-toggle[aria-expanded="true"] span:last-child { transform: rotate(180deg); }
+.news-archive-link { display: inline-flex; align-items: center; gap: 18px; margin-top: 20px; padding: 10px 0; color: var(--forest); border-bottom: 1px solid var(--coral); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; transition: color .2s ease, gap .2s ease; }
+.news-archive-link:hover { gap: 23px; color: var(--coral); }
+.news-archive-link span:last-child { color: var(--coral); font-size: 16px; }
 
 .publication-image img, .portrait-frame img { background-color: #fff; }
 .institution-logo img { background: transparent; mix-blend-mode: multiply; }
